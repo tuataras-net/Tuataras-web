@@ -2,9 +2,9 @@ import { PageShell } from "@/components/PageShell";
 
 export default function Page() {
   return (
-    <PageShell lang="en" title="Tuataras">
-      <section className="mt-8 rounded-3xl border border-corp bg-corp-soft p-8 lg:p-12">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+    <PageShell lang="en" title="Tuataras" hideTitle>
+      <section className="mt-8 overflow-hidden rounded-3xl border border-corp bg-gradient-to-br from-cyan-50 via-white to-indigo-50 p-8 lg:p-12">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-muted">
               Consulting & Development
@@ -39,13 +39,22 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="rounded-2xl border border-corp bg-white p-6">
-            <p className="text-sm font-semibold text-muted">Snapshot</p>
-            <ul className="mt-4 grid gap-4 text-muted">
-              <li>Multidisciplinary teams focused on business outcomes</li>
-              <li>Agile processes with iterative delivery</li>
-              <li>Governance and metrics to scale</li>
-            </ul>
+          <div className="relative">
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-200 opacity-40 blur-3xl" />
+            <div className="absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-cyan-200 opacity-40 blur-3xl" />
+            <div className="rounded-2xl border border-corp bg-white p-6">
+              <img
+                src="/hero-illustration.svg"
+                alt="Digital innovation illustration"
+                className="aspect-[4/3] w-full rounded-xl object-cover"
+              />
+              <p className="mt-4 text-sm font-semibold text-muted">Snapshot</p>
+              <ul className="mt-3 grid gap-3 text-muted">
+                <li>Multidisciplinary teams focused on business outcomes</li>
+                <li>Agile processes with iterative delivery</li>
+                <li>Governance and metrics to scale</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -54,11 +63,25 @@ export default function Page() {
         <p className="text-xs font-semibold uppercase tracking-widest text-muted">
           Trusted by
         </p>
-        <div className="mt-4 grid grid-cols-2 gap-6 text-sm text-muted sm:grid-cols-4">
-          <div className="rounded-xl border border-corp px-4 py-6 text-center">Client A</div>
-          <div className="rounded-xl border border-corp px-4 py-6 text-center">Client B</div>
-          <div className="rounded-xl border border-corp px-4 py-6 text-center">Client C</div>
-          <div className="rounded-xl border border-corp px-4 py-6 text-center">Client D</div>
+        <div className="mt-6 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+          {[
+            { src: "/clients/seguros-universitas.jpg", alt: "Seguros Universitas" },
+            { src: "/clients/wave-house.jpg", alt: "Wave House Cleaning" },
+            { src: "/clients/flick-food.jpg", alt: "Flick Food" },
+            { src: "/clients/fondo-global.jpg", alt: "Fondo Global de Construcción" },
+            { src: "/clients/grupo-3ag.jpg", alt: "Grupo 3AG" },
+            { src: "/clients/gudari-caribe.jpg", alt: "Gudari Caribe" },
+            { src: "/clients/humanitas.jpg", alt: "Humanitas" },
+            { src: "/clients/lamprey-solutions.jpg", alt: "Lamprey Solutions" },
+            { src: "/clients/nashoot.jpg", alt: "Nashoot" },
+            { src: "/clients/palt.jpg", alt: "Palt" },
+            { src: "/clients/panama-container.jpg", alt: "Panama Container Solutions" },
+            { src: "/clients/grupo-seei.jpg", alt: "Grupo SEEI" },
+          ].map((client) => (
+            <div key={client.alt} className="flex h-44 items-center justify-center bg-white p-2">
+              <img src={client.src} alt={client.alt} className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
+            </div>
+          ))}
         </div>
       </section>
 

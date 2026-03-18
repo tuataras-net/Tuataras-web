@@ -4,23 +4,22 @@ export default function Page() {
   return (
     <PageShell lang="es" title="Diseño UX / UI">
       <p>
-        Diseñamos productos intuitivos, accesibles y centrados en usuario.
-        Convertimos la complejidad en experiencias claras.
+        Creamos prototipos de alta fidelidad y productos digitales efectivos,
+        centrados en la experiencia del usuario y los objetivos de negocio.
       </p>
-
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         {[{
-          title: "Research & insights",
-          desc: "Entrevistas, mapas de experiencia y definición de pain points.",
+          title: "Ahorra tiempo y dinero",
+          desc: "Reducimos el costo en la creación de funcionalidades correctas y eliminamos errores de patrones de forma temprana.",
         }, {
-          title: "Prototipado rápido",
-          desc: "Validación temprana con prototipos interactivos.",
+          title: "Planificación precisa",
+          desc: "Creamos flujos de usuario que permiten estimar tiempos de desarrollo y reducir incertidumbre en el proyecto.",
         }, {
-          title: "UI Systems",
-          desc: "Sistemas de diseño consistentes y escalables.",
+          title: "Prototipos de alta fidelidad",
+          desc: "Diseñamos prototipos interactivos detallados antes de escribir código, validando conceptos con usuarios reales.",
         }, {
-          title: "Accesibilidad",
-          desc: "Cumplimiento WCAG y foco en inclusión.",
+          title: "Mejora continua",
+          desc: "Aplicamos metodologías iterativas de diseño centrado en el usuario para mejorar la experiencia constantemente.",
         }].map((item) => (
           <div key={item.title} className="rounded-2xl border border-corp p-6">
             <h3 className="text-lg font-semibold text-corp">{item.title}</h3>
@@ -28,15 +27,10 @@ export default function Page() {
           </div>
         ))}
       </div>
-
       <section className="mt-16 rounded-3xl border border-corp bg-corp-soft p-8">
-        <h3 className="text-2xl font-semibold text-corp">¿Empezamos?</h3>
-        <p className="mt-2 text-muted">
-          Diseñemos una experiencia que tus usuarios amen.
-        </p>
-        <a className="btn-primary mt-6 inline-block rounded-full px-6 py-3 text-sm font-semibold" href="/es/contacto">
-          Hablemos
-        </a>
+        <h3 className="text-2xl font-semibold text-corp">¿Empezamos a diseñar?</h3>
+        <p className="mt-2 text-muted">Cuéntanos tu proyecto y creamos la experiencia perfecta.</p>
+        <a className="btn-primary mt-6 inline-block rounded-full px-6 py-3 text-sm font-semibold" href="/es/contacto">Hablemos</a>
       </section>
     </PageShell>
   );
