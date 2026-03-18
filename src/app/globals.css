@@ -25,18 +25,57 @@ body {
   font-family: var(--font-sans);
 }
 
-:root {
-  --corp-navy: #0b1f3b;
-  --corp-blue: #1f5bff;
-  --corp-slate: #334155;
-  --corp-mist: #f3f6fb;
-  --corp-border: #e2e8f0;
+@keyframes progress-line {
+  0%   { width: 0%; opacity: 0.3; }
+  100% { width: 100%; opacity: 1; }
 }
 
-.bg-corp { background-color: var(--corp-navy); }
-.text-corp { color: var(--corp-navy); }
-.text-muted { color: var(--corp-slate); }
-.bg-corp-soft { background-color: var(--corp-mist); }
-.border-corp { border-color: var(--corp-border); }
-.btn-primary { background-color: var(--corp-navy); color: white; }
+.animate-progress {
+  animation: progress-line 2s ease-in-out infinite alternate;
+}
+
+@keyframes fade-up {
+  0%   { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.5s ease-out forwards;
+}
+.delay-0  { animation-delay: 0s; }
+.delay-1  { animation-delay: 0.2s; }
+.delay-2  { animation-delay: 0.4s; }
+.delay-3  { animation-delay: 0.6s; }
+
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0); }
+  70%  { transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop {
+  opacity: 0;
+  animation: pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+.badge-delay-0 { animation-delay: 2.0s; }
+.badge-delay-1 { animation-delay: 3.0s; }
+.badge-delay-2 { animation-delay: 4.0s; }
+.badge-delay-3 { animation-delay: 5.0s; }
+
+:root {
+  --corp-navy:   #0d2b1f;   /* verde jungla profundo */
+  --corp-green:  #1a6b3a;   /* verde medio */
+  --corp-lime:   #3ecf8e;   /* acento digital */
+  --corp-slate:  #2d4a3a;   /* texto secundario */
+  --corp-mist:   #f0faf4;   /* fondo suave */
+  --corp-border: #c6e8d5;   /* bordes */
+}
+
+.bg-corp       { background-color: var(--corp-navy); }
+.text-corp     { color: var(--corp-navy); }
+.text-muted    { color: var(--corp-slate); }
+.bg-corp-soft  { background-color: var(--corp-mist); }
+.border-corp   { border-color: var(--corp-border); }
+.btn-primary   { background-color: var(--corp-navy); color: white; }
 .btn-secondary { border: 1px solid var(--corp-border); color: var(--corp-slate); }

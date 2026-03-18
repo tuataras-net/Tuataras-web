@@ -16,7 +16,7 @@ export function PageShell({
       <header className="border-b border-corp bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
           <div className="flex items-center gap-2">
-            <img src="/logo.jpg" alt="Tuataras" className="h-10 w-auto rounded" />
+            <img src="/logo.jpg" alt="Tuataras" className="h-12 w-auto" />
           </div>
           <Nav lang={lang} />
         </div>
@@ -28,7 +28,7 @@ export function PageShell({
       <footer className="border-t border-corp mt-16">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Tuataras" className="h-8 w-auto rounded" />
+            <img src="/logo.jpg" alt="Tuataras" className="h-10 w-auto" />
             <span className="text-sm text-muted">© {new Date().getFullYear()} Tuataras</span>
           </div>
           <div className="flex gap-6 text-sm text-muted">

@@ -1,0 +1,20 @@
+<svg width="600" height="300" viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" rx="24" fill="#f0faf4"/>
+  <!-- Gear icon -->
+  <circle cx="120" cy="150" r="40" fill="#c6e8d5"/>
+  <circle cx="120" cy="150" r="22" fill="white"/>
+  <rect x="112" y="100" width="16" height="20" rx="6" fill="#1a6b3a"/>
+  <rect x="112" y="180" width="16" height="20" rx="6" fill="#1a6b3a"/>
+  <rect x="80" y="140" width="20" height="16" rx="6" fill="#1a6b3a" transform="rotate(0 80 148)"/>
+  <rect x="140" y="140" width="20" height="16" rx="6" fill="#1a6b3a"/>
+  <!-- Code icon -->
+  <rect x="230" y="100" width="140" height="100" rx="16" fill="#0d2b1f"/>
+  <rect x="248" y="120" width="60" height="8" rx="4" fill="#3ecf8e"/>
+  <rect x="248" y="136" width="90" height="8" rx="4" fill="#c6e8d5" opacity="0.6"/>
+  <rect x="248" y="152" width="70" height="8" rx="4" fill="#c6e8d5" opacity="0.5"/>
+  <rect x="248" y="168" width="50" height="8" rx="4" fill="#3ecf8e" opacity="0.7"/>
+  <!-- Leaf accent -->
+  <ellipse cx="470" cy="120" rx="50" ry="24" fill="#3ecf8e" opacity="0.4" transform="rotate(-20 470 120)"/>
+  <ellipse cx="500" cy="170" rx="40" ry="18" fill="#1a6b3a" opacity="0.5" transform="rotate(15 500 170)"/>
+  <rect x="480" y="190" width="12" height="80" rx="6" fill="#1a6b3a"/>
+</svg>
