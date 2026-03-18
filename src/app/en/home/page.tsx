@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { StepsSection } from "@/components/StepsSection";
 import { PageShell } from "@/components/PageShell";
+import { ClientsGrid } from "@/components/ClientsGrid";
 
 export const metadata: Metadata = {
   title: "Tuataras | Web Development, UX/UI & Digital Consulting",
@@ -19,18 +20,18 @@ const services = [
 ];
 
 const clients = [
-  { src: "/clients/seguros-universitas.jpg", alt: "Seguros Universitas" },
-  { src: "/clients/wave-house.jpg", alt: "Wave House Cleaning" },
-  { src: "/clients/flick-food.jpg", alt: "Flick Food" },
-  { src: "/clients/fondo-global.jpg", alt: "Fondo Global de Construcción" },
-  { src: "/clients/grupo-3ag.jpg", alt: "Grupo 3AG" },
-  { src: "/clients/gudari-caribe.jpg", alt: "Gudari Caribe" },
-  { src: "/clients/humanitas.jpg", alt: "Humanitas" },
-  { src: "/clients/lamprey-solutions.jpg", alt: "Lamprey Solutions" },
-  { src: "/clients/nashoot.jpg", alt: "Nashoot" },
-  { src: "/clients/palt.jpg", alt: "Palt" },
-  { src: "/clients/panama-container.jpg", alt: "Panama Container Solutions" },
-  { src: "/clients/grupo-seei.jpg", alt: "Grupo SEEI" },
+  { src: "/clients/seguros-universitas.jpg", alt: "Seguros Universitas", href: "https://www.segurosuniversitas.com" },
+  { src: "/clients/wave-house.jpg", alt: "Wave House Cleaning", href: "https://wavehousecleaning.com" },
+  { src: "/clients/flick-food.jpg", alt: "Flick Food", href: "" },
+  { src: "/clients/fondo-global.jpg", alt: "Fondo Global de Construcción", href: "https://www.fondoglobaldeconstruccion.com" },
+  { src: "/clients/grupo-3ag.jpg", alt: "Grupo 3AG", href: "" },
+  { src: "/clients/gudari-caribe.jpg", alt: "Gudari Caribe", href: "https://gudaricaribe.com" },
+  { src: "/clients/humanitas.jpg", alt: "Humanitas", href: "https://www.humanitas.com.ve" },
+  { src: "/clients/lamprey-solutions.jpg", alt: "Lamprey Solutions", href: "https://www.lampreyusa.com" },
+  { src: "/clients/nashoot.jpg", alt: "Nashoot", href: "" },
+  { src: "/clients/palt.jpg", alt: "Palt", href: "https://www.palt.es" },
+  { src: "/clients/panama-container.jpg", alt: "Panama Container Solutions", href: "https://pcslogistic.com" },
+  { src: "/clients/grupo-seei.jpg", alt: "Grupo SEEI", href: "" },
 ];
 
 const steps = [
@@ -88,13 +89,7 @@ export default function Page() {
         <p className="text-xs font-semibold uppercase tracking-widest text-muted text-center">
           Companies that trust Tuataras
         </p>
-        <div className="mt-6 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-          {clients.map((c) => (
-            <div key={c.alt} className="flex h-44 items-center justify-center bg-white p-2">
-              <img src={c.src} alt={c.alt} className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition" />
-            </div>
-          ))}
-        </div>
+        <ClientsGrid clients={clients} />
       </section>
 
       {/* Services */}
@@ -103,7 +98,7 @@ export default function Page() {
         <p className="mt-2 text-muted">Everything you need for your digital transformation in one team.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {services.map((s) => (
-                                                            <a key={s.title} href={s.href} className="flex flex-col overflow-hidden rounded-2xl border border-corp bg-corp-soft transition hover:shadow-md">
+            <a key={s.title} href={s.href} className="flex flex-col overflow-hidden rounded-2xl border border-corp bg-corp-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <div className="h-36 w-full overflow-hidden bg-white">
                 <img src={s.img} alt={s.title} className="h-full w-full object-cover" />
               </div>

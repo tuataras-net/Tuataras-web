@@ -15,7 +15,7 @@ const nav = {
 
 export function Nav({ lang }: { lang: "es" | "en" }) {
   return (
-    <nav className="flex items-center gap-6 text-sm text-muted">
+    <nav className="flex items-center gap-6 text-lg text-muted">
       {nav[lang].map((item) => (
         <a key={item.href} href={item.href} className="hover:text-corp">
           {item.label}

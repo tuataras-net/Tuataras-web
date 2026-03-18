@@ -20,12 +20,28 @@ export function StepsSection({ steps, label }: { steps: Step[]; label: string })
 
   return (
     <div ref={ref} className="relative mt-6">
-      {/* Animated connecting line */}
+      {/* Línea horizontal animada — desktop */}
       <div
         className="absolute left-0 right-0 top-1/2 hidden -translate-y-1/2 md:block"
         style={{ height: "2px", background: "#c6e8d5", overflow: "hidden" }}
       >
         <div className="animate-progress h-full" style={{ background: "linear-gradient(to right, #3ecf8e, #1a6b3a)" }} />
+      </div>
+
+      {/* Línea vertical animada — mobile */}
+      <div
+        className="absolute bottom-0 left-1/2 top-0 -translate-x-1/2 md:hidden"
+        style={{ width: "2px", background: "#c6e8d5", overflow: "hidden" }}
+      >
+        <div
+          className="w-full"
+          style={{
+            background: "linear-gradient(to bottom, #3ecf8e, #1a6b3a)",
+            animation: "progress-line-v 2s ease-in-out infinite alternate",
+            animationDelay: "5.5s",
+            animationFillMode: "backwards",
+          }}
+        />
       </div>
 
       <div className="relative grid gap-4 md:grid-cols-4">

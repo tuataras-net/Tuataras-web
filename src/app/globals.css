@@ -34,6 +34,11 @@ body {
   animation: progress-line 2s ease-in-out infinite alternate;
 }
 
+@keyframes progress-line-v {
+  0%   { height: 0%; opacity: 0.3; }
+  100% { height: 100%; opacity: 1; }
+}
+
 @keyframes fade-up {
   0%   { opacity: 0; transform: translateY(24px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -44,9 +49,11 @@ body {
   animation: fade-up 0.5s ease-out forwards;
 }
 .delay-0  { animation-delay: 0s; }
-.delay-1  { animation-delay: 0.2s; }
-.delay-2  { animation-delay: 0.4s; }
-.delay-3  { animation-delay: 0.6s; }
+.delay-1  { animation-delay: 0.15s; }
+.delay-2  { animation-delay: 0.3s; }
+.delay-3  { animation-delay: 0.45s; }
+.delay-4  { animation-delay: 0.6s; }
+.delay-5  { animation-delay: 0.75s; }
 
 @keyframes pop-in {
   0%   { opacity: 0; transform: scale(0); }
@@ -58,10 +65,37 @@ body {
   opacity: 0;
   animation: pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
 }
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+.animate-marquee:hover { animation-play-state: paused; }
+
 .badge-delay-0 { animation-delay: 2.0s; }
 .badge-delay-1 { animation-delay: 3.0s; }
 .badge-delay-2 { animation-delay: 4.0s; }
 .badge-delay-3 { animation-delay: 5.0s; }
+
+@keyframes sway {
+  0%, 100% { transform: rotate(var(--sway-from)); }
+  50%       { transform: rotate(var(--sway-to)); }
+}
+.sway-1, .sway-2, .sway-3, .sway-4, .sway-5, .sway-6, .sway-7, .sway-8 {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+}
+.sway-1 { --sway-from: -4deg; --sway-to:  4deg; animation: sway 5s   ease-in-out infinite; }
+.sway-2 { --sway-from: -3deg; --sway-to:  3deg; animation: sway 6s   ease-in-out infinite 0.8s; }
+.sway-3 { --sway-from: -3deg; --sway-to:  4deg; animation: sway 7s   ease-in-out infinite 0.3s; }
+.sway-4 { --sway-from: -4deg; --sway-to:  3deg; animation: sway 5.5s ease-in-out infinite 1.2s; }
+.sway-5 { --sway-from: -3deg; --sway-to:  4deg; animation: sway 6.5s ease-in-out infinite 0.5s; }
+.sway-6 { --sway-from: -5deg; --sway-to:  3deg; animation: sway 4.5s ease-in-out infinite 1.5s; }
+.sway-7 { --sway-from: -3deg; --sway-to:  5deg; animation: sway 8s   ease-in-out infinite 0.2s; }
+.sway-8 { --sway-from: -4deg; --sway-to:  3deg; animation: sway 5s   ease-in-out infinite 2s; }
 
 :root {
   --corp-navy:   #0d2b1f;   /* verde jungla profundo */
