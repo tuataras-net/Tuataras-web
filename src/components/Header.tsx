@@ -111,18 +111,18 @@ export function Header({ lang }: { lang: "es" | "en" }) {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-corp bg-white transition-all duration-300">
+    <header className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${scrolled ? "border-transparent bg-transparent" : "border-corp bg-white"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <a href={lang === "es" ? "/es/inicio" : "/en/home"}>
           <img
-            src="/logo.jpg"
+            src="/Logo.png"
             alt="Tuataras"
-            className={`w-auto transition-all duration-300 ${scrolled ? "h-[67px]" : "h-[90px]"}`}
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-[67px]" : "h-[90px]"}`}
           />
         </a>
 
         {/* Menú desktop */}
-        <nav className="hidden md:flex items-center gap-6 text-lg text-muted">
+        <nav className={`hidden md:flex items-center gap-6 text-lg text-muted transition-all duration-500 ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
           {items.map((item) => (
             <DropdownItem key={item.href} item={item} />
           ))}

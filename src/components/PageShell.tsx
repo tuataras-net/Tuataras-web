@@ -111,7 +111,7 @@ export function PageShell({
       <footer className="border-t border-corp mt-16">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
           <div className="flex items-center gap-3">
-            <img src="/logo.jpg" alt="Tuataras" className="hidden md:block h-10 w-auto" />
+            <img src="/Logo.png" alt="Tuataras" className="hidden md:block h-10 w-auto" />
             <span className="text-sm text-muted">© {new Date().getFullYear()} Tuataras</span>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-muted">
