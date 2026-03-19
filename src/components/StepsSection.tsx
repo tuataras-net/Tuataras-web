@@ -69,7 +69,7 @@ export function StepsSection({ steps, label }: { steps: Step[]; label: string })
               <h3 className="font-semibold text-corp">{s.title}</h3>
               <p className="mt-1 text-sm text-muted">{s.desc}</p>
             </div>
-            <div className="h-32 w-full overflow-hidden bg-white">
+            <div className="h-40 md:h-32 w-full overflow-hidden bg-white">
               <img src={s.img} alt={s.title} className="h-full w-full object-cover" />
             </div>
           </div>

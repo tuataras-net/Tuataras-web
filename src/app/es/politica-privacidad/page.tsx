@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+
+export const metadata: Metadata = {
+  title: "Política de Privacidad | Tuataras",
+  description: "Política de privacidad y protección de datos de Tuataras.",
+  robots: { index: false, follow: false },
+};
 
 export default function Page() {
   return (

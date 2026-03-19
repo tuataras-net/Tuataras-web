@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <rect width="400" height="240" fill="#f0faf4"/>
+  <ellipse cx="200" cy="90" rx="90" ry="52" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <ellipse cx="148" cy="105" rx="50" ry="36" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <ellipse cx="254" cy="102" rx="54" ry="38" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <text x="175" y="96" font-size="22" fill="#1a6b3a" opacity="0.6" font-family="monospace">AWS</text>
+  <line x1="148" y1="141" x2="120" y2="175" stroke="#3ecf8e" stroke-width="2"/>
+  <line x1="200" y1="141" x2="200" y2="175" stroke="#3ecf8e" stroke-width="2"/>
+  <line x1="254" y1="140" x2="280" y2="175" stroke="#3ecf8e" stroke-width="2"/>
+  <rect x="96" y="175" width="48" height="32" rx="6" fill="#1a6b3a" opacity="0.15" stroke="#c6e8d5"/>
+  <rect x="176" y="175" width="48" height="32" rx="6" fill="#1a6b3a" opacity="0.15" stroke="#c6e8d5"/>
+  <rect x="256" y="175" width="48" height="32" rx="6" fill="#1a6b3a" opacity="0.15" stroke="#c6e8d5"/>
+  <rect x="104" y="183" width="32" height="6" rx="3" fill="#3ecf8e" opacity="0.6"/>
+  <rect x="184" y="183" width="32" height="6" rx="3" fill="#3ecf8e" opacity="0.6"/>
+  <rect x="264" y="183" width="32" height="6" rx="3" fill="#3ecf8e" opacity="0.6"/>
+  <rect x="104" y="194" width="20" height="6" rx="3" fill="#c6e8d5"/>
+  <rect x="184" y="194" width="20" height="6" rx="3" fill="#c6e8d5"/>
+  <rect x="264" y="194" width="20" height="6" rx="3" fill="#c6e8d5"/>
+</svg>

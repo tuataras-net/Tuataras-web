@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { StepsSection } from "@/components/StepsSection";
 import { PageShell } from "@/components/PageShell";
 import { ClientsGrid } from "@/components/ClientsGrid";
+import { AnimatedHero } from "@/components/AnimatedHero";
 
 export const metadata: Metadata = {
   title: "Tuataras | Web Development, UX/UI & Digital Consulting",
@@ -66,20 +67,11 @@ export default function Page() {
                 Contact us
               </a>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-corp pt-8">
-              <div><p className="text-2xl font-semibold text-corp">10+</p><p className="text-sm text-muted">Years of experience</p></div>
-              <div><p className="text-2xl font-semibold text-corp">120+</p><p className="text-sm text-muted">Projects delivered</p></div>
-              <div><p className="text-2xl font-semibold text-corp">12+</p><p className="text-sm text-muted">Active clients</p></div>
-            </div>
           </div>
           <div className="relative hidden lg:block">
             <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-indigo-200 opacity-40 blur-3xl" />
             <div className="absolute -left-10 bottom-0 h-32 w-32 rounded-full bg-cyan-200 opacity-40 blur-3xl" />
-            <img
-              src="/illustrations/hero.svg"
-              alt="Tuataras digital platforms"
-              className="w-full rounded-2xl"
-            />
+            <AnimatedHero />
           </div>
         </div>
       </section>

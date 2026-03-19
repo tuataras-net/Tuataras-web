@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <rect width="400" height="240" fill="#f0faf4"/>
+  <!-- Cloud -->
+  <ellipse cx="200" cy="100" rx="90" ry="55" fill="#1a6b3a" opacity="0.1"/>
+  <ellipse cx="155" cy="115" rx="50" ry="38" fill="#1a6b3a" opacity="0.1"/>
+  <ellipse cx="248" cy="112" rx="55" ry="40" fill="#1a6b3a" opacity="0.1"/>
+  <ellipse cx="200" cy="95" rx="85" ry="50" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <ellipse cx="152" cy="110" rx="48" ry="36" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <ellipse cx="250" cy="108" rx="52" ry="38" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <!-- Cloud center icon -->
+  <circle cx="200" cy="90" r="22" fill="#1a6b3a" opacity="0.12"/>
+  <path d="M190 90 L198 98 L212 82" stroke="#1a6b3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Connecting lines down -->
+  <line x1="160" y1="148" x2="120" y2="185" stroke="#3ecf8e" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="200" y1="148" x2="200" y2="185" stroke="#3ecf8e" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="242" y1="148" x2="280" y2="185" stroke="#3ecf8e" stroke-width="2" stroke-dasharray="4 3"/>
+  <!-- Devices -->
+  <rect x="100" y="185" width="40" height="28" rx="5" fill="#1a6b3a" opacity="0.7"/>
+  <rect x="104" y="189" width="32" height="20" rx="3" fill="#3ecf8e" opacity="0.4"/>
+  <rect x="180" y="185" width="40" height="28" rx="5" fill="#1a6b3a" opacity="0.7"/>
+  <rect x="184" y="189" width="32" height="20" rx="3" fill="#3ecf8e" opacity="0.4"/>
+  <rect x="260" y="185" width="40" height="28" rx="5" fill="#1a6b3a" opacity="0.7"/>
+  <rect x="264" y="189" width="32" height="20" rx="3" fill="#3ecf8e" opacity="0.4"/>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <rect width="400" height="240" fill="#f0faf4"/>
+  <!-- Browser frame -->
+  <rect x="60" y="30" width="280" height="180" rx="12" fill="white" stroke="#c6e8d5" stroke-width="2"/>
+  <rect x="60" y="30" width="280" height="36" rx="12" fill="#1a6b3a" opacity="0.08"/>
+  <circle cx="84" cy="48" r="5" fill="#1a6b3a" opacity="0.3"/>
+  <circle cx="100" cy="48" r="5" fill="#1a6b3a" opacity="0.3"/>
+  <circle cx="116" cy="48" r="5" fill="#1a6b3a" opacity="0.3"/>
+  <rect x="136" y="40" width="140" height="16" rx="8" fill="#f0faf4"/>
+  <!-- Cart icon top right -->
+  <path d="M308 40 L316 40 L319 52 L305 52 Z" stroke="#3ecf8e" stroke-width="2" fill="none"/>
+  <circle cx="308" cy="55" r="2" fill="#3ecf8e"/>
+  <circle cx="316" cy="55" r="2" fill="#3ecf8e"/>
+  <!-- Product cards -->
+  <rect x="76" y="80" width="72" height="80" rx="8" fill="#f0faf4" stroke="#c6e8d5"/>
+  <rect x="80" y="84" width="64" height="44" rx="6" fill="#c6e8d5" opacity="0.5"/>
+  <rect x="80" y="134" width="40" height="6" rx="3" fill="#1a6b3a" opacity="0.5"/>
+  <rect x="80" y="146" width="28" height="6" rx="3" fill="#3ecf8e" opacity="0.8"/>
+
+  <rect x="164" y="80" width="72" height="80" rx="8" fill="#f0faf4" stroke="#c6e8d5"/>
+  <rect x="168" y="84" width="64" height="44" rx="6" fill="#1a6b3a" opacity="0.15"/>
+  <rect x="168" y="134" width="44" height="6" rx="3" fill="#1a6b3a" opacity="0.5"/>
+  <rect x="168" y="146" width="30" height="6" rx="3" fill="#3ecf8e" opacity="0.8"/>
+
+  <rect x="252" y="80" width="72" height="80" rx="8" fill="#f0faf4" stroke="#c6e8d5"/>
+  <rect x="256" y="84" width="64" height="44" rx="6" fill="#3ecf8e" opacity="0.2"/>
+  <rect x="256" y="134" width="36" height="6" rx="3" fill="#1a6b3a" opacity="0.5"/>
+  <rect x="256" y="146" width="24" height="6" rx="3" fill="#3ecf8e" opacity="0.8"/>
+</svg>

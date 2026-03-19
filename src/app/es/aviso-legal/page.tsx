@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
+
+export const metadata: Metadata = {
+  title: "Aviso Legal | Tuataras",
+  description: "Aviso legal y condiciones de uso de Tuataras.",
+  robots: { index: false, follow: false },
+};
 
 export default function Page() {
   return (

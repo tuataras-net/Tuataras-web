@@ -1,4 +1,5 @@
 import { Header } from "./Header";
+import { ChatWidget } from "./ChatWidget";
 
 function Fern({ x, y, size = 1, swayClass }: { x: number; y: number; size?: number; swayClass: string }) {
   const s = size;
@@ -106,6 +107,7 @@ export function PageShell({
         {!hideTitle && <h1 className="text-3xl font-semibold text-corp">{title}</h1>}
         <div className="mt-6 text-muted">{children}</div>
       </main>
+      <ChatWidget />
       <footer className="border-t border-corp mt-16">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
           <div className="flex items-center gap-3">
