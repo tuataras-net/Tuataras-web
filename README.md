@@ -119,7 +119,7 @@ tuataras-next/
 │   │   ├── StepsSection.tsx       # Timeline animado de proceso
 │   │   ├── ClientsGrid.tsx        # Grid de logos de clientes
 │   │   ├── ContactForm.tsx        # Formulario de contacto (EmailJS)
-│   │   ├── ChatWidget.tsx         # Chat flotante con IA
+│   │   ├── ChatWidget.tsx         # Botón flotante de WhatsApp
 │   │   ├── BlogPostAnimation.tsx  # Mapeador slug → animación
 │   │   ├── AnimatedHero.tsx       # Dashboard animado (Home)
 │   │   ├── AnimatedDevOps.tsx     # Pipeline CI/CD (DevOps)
@@ -241,6 +241,17 @@ Requisitos para deploy:
 2. Crear imagen OG `/public/og-image.jpg`
 3. Actualizar `BASE_URL` en `src/app/layout.tsx` y `src/app/sitemap.ts` con el dominio real
 4. Actualizar URLs de contacto (WhatsApp, Calendly, email) con datos reales
+
+---
+
+## Changelog
+
+### DEV — 2026-03-28
+
+- **Contacto:** Dirección actualizada a Montalbán 1, 3ra Avenida. Quinta Gladys. Caracas DC, Venezuela.
+- **Contacto:** WhatsApp actualizado a +58 424-1399078 (Venezuela).
+- **Contacto:** Email actualizado a angeldominguezg@gmail.com.
+- **ChatWidget:** Reemplazado el chat flotante con IA por un botón flotante de WhatsApp.
 
 ---
 
