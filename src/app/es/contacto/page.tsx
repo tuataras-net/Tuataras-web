@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 };
 
 const contactInfo = [
-  { icon: "✉️", label: "Email", value: "hola@tuataras.io", href: "mailto:hola@tuataras.io" },
-  { icon: "💬", label: "WhatsApp", value: "+507 6000 0000", href: "https://wa.me/50760000000" },
-  { icon: "📍", label: "Ubicación", value: "Ciudad de Panamá, Panamá", href: null },
+  { icon: "✉️", label: "Email", value: "angeldominguezg@gmail.com", href: "mailto:angeldominguezg@gmail.com" },
+  { icon: "💬", label: "WhatsApp", value: "+58 424-1399078", href: "https://wa.me/584241399078" },
+  { icon: "📍", label: "Ubicación", value: "Montalbán 1, 3ra Avenida. Quinta Gladys. Caracas DC, Venezuela.", href: null },
 ];
 
 export default function Page() {
@@ -66,8 +66,8 @@ export default function Page() {
         <div className="flex flex-col gap-6">
           <div className="overflow-hidden rounded-2xl border border-corp flex-1 min-h-[380px]">
             <iframe
-              title="Tuataras — Ciudad de Panamá"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125359.54297760485!2d-79.59897!3d8.99360!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8f41ae0dc7d%3A0x34fdf3d38c1c1ac2!2sPanama%20City%2C%20Panama!5e0!3m2!1ses!2spa!4v1700000000000"
+              title="Tuataras — Caracas, Venezuela"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.7!2d-66.9236!3d10.4806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58adcd824807%3A0x4a8a7f3b2b2b2b2b!2sMontalbán%2C%20Caracas%2C%20Venezuela!5e0!3m2!1ses!2sve!4v1700000000000"
               width="100%" height="100%"
               className="w-full h-full min-h-[380px] grayscale hover:grayscale-0 transition-all duration-500"
               style={{ border: 0 }}
@@ -75,7 +75,7 @@ export default function Page() {
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <a href="https://wa.me/50760000000" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/584241399078" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl border border-corp bg-corp-soft p-4 transition-all hover:-translate-y-1 hover:shadow-lg">
               <span className="text-2xl">💬</span>
               <div>
