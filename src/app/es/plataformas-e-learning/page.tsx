@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedElearning } from "@/components/AnimatedElearning";
 
 export const metadata: Metadata = {
-  title: "Plataformas e-learning, LMS o Campus Virtual | Tuataras",
+  title: "Plataformas e-learning, LMS o Campus Virtual" ,
   description: "Estrategia, desarrollo y analítica para plataformas e-learning y campus virtuales a medida.",
 };
 

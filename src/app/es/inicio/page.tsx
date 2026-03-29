@@ -5,7 +5,7 @@ import { ClientsGrid } from "@/components/ClientsGrid";
 import { AnimatedHero } from "@/components/AnimatedHero";
 
 export const metadata: Metadata = {
-  title: "Tuataras | Desarrollo Web, UX/UI y Consultoría Digital",
+  title: "Desarrollo Web, UX/UI y Consultoría Digital",
   description:
     "Creamos aplicaciones web escalables, diseño UX/UI y plataformas e-learning. Soluciones tecnológicas para empresas que buscan crecer.",
   keywords: "desarrollo web, UX/UI, DevOps, e-learning, consultoría TIC",

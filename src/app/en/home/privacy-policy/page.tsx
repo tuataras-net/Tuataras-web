@@ -22,7 +22,7 @@ export default function Page() {
       <p className="mt-4 text-muted">By continuing to use our Website, you acknowledge that you have had the chance to review and consider this Privacy Policy, and you acknowledge that you agree to it. This means that you also consent to the use of your information and the method of disclosure as described in this Privacy Policy. If you do not understand the Privacy Policy or do not agree to it then you agree to immediately cease your use of our Website.</p>
       <p className="mt-4 text-muted">Article 3 - CONTACT:</p>
       <p className="mt-4 text-muted">The Party responsible for the processing of your personal data is as follows: TUATARAS LLC. The Data Controller may be contacted as follows:</p>
-      <p className="mt-4 text-muted">E-Mail: info@tuataras.local</p>
+      <p className="mt-4 text-muted">E-Mail: info@tuataras.net</p>
       <p className="mt-4 text-muted">The Data Controller and operator of the Website are one and the same.</p>
       <p className="mt-4 text-muted">Article 4 - LOCATION:</p>
       <p className="mt-4 text-muted">Please be advised the data processing activities take place in the United States, outside the European Economic Area. Data may also be transferred to companies within the United States, but will only be done so in a manner that complies with the EU's General Data Protection Regulation or GDPR. The location where the data processing activities take place is as follows:</p>
@@ -122,11 +122,11 @@ export default function Page() {
       <p className="mt-4 text-muted">Article 13 - PUBLIC INFORMATION:</p>
       <p className="mt-4 text-muted">We may allow users to post their own content or information publicly on our Website. Such content or information may include, but is not limited to, photographs, status updates, blogs, articles, or other personal snippets. Please be aware that any such information or content that you may post should be considered entirely public and that we do not purport to maintain the privacy of such public information.</p>
       <p className="mt-4 text-muted">Article 14 - OPTING OUT OF TRANSMITTALS FROM US:</p>
-      <p className="mt-4 text-muted">From time to time, we may send you informational or marketing communications related to our Website such as announcements or other information. If you wish to opt-out of such communications, you may contact the following email: info@tuataras.local. You may also click the opt-out link which will be provided at the bottom of any and all such communications.</p>
+      <p className="mt-4 text-muted">From time to time, we may send you informational or marketing communications related to our Website such as announcements or other information. If you wish to opt-out of such communications, you may contact the following email: info@tuataras.net. You may also click the opt-out link which will be provided at the bottom of any and all such communications.</p>
       <p className="mt-4 text-muted">Please be advised that even though you may opt-out of such communications, you may still receive information from us that is specifically about your use of our Website or about your account with us.</p>
       <p className="mt-4 text-muted">By providing any Personal Data to us, or by using our Website in any manner, you have created a commercial relationship with us. As such, you agree that any email sent from us or third-party affiliates, even unsolicited email, shall specifically not be considered SPAM, as that term is legally defined.</p>
       <p className="mt-4 text-muted">Article 15 - MODIFYING, DELETING, AND ACCESSING YOUR INFORMATION:</p>
-      <p className="mt-4 text-muted">If you wish to modify or delete any information we may have about you, or you wish to simply access any information we have about you, you may reach out to us at the following email address: info@tuataras.local.</p>
+      <p className="mt-4 text-muted">If you wish to modify or delete any information we may have about you, or you wish to simply access any information we have about you, you may reach out to us at the following email address: info@tuataras.net.</p>
       <p className="mt-4 text-muted">Article 16 - ACCEPTANCE OF RISK:</p>
       <p className="mt-4 text-muted">By continuing to our Website in any manner, use the Product, you manifest your continuing asset to this Privacy Policy. You further acknowledge, agree and accept that no transmission of information or data via the internet is not always completely secure, no matter what steps are taken. You acknowledge, agree and accept that we do not guarantee or warrant the security of any information that you provide to us, and that you transmit such information at your own risk.</p>
       <p className="mt-4 text-muted">Article 17 - YOUR RIGHTS:</p>
@@ -141,7 +141,7 @@ export default function Page() {
       <p className="mt-4 text-muted">- the right to launch a complaint with the Federal Trade Commission (FTC) in the United States or applicable data protection authority in another jurisdiction</p>
       <p className="mt-4 text-muted">Such rights can all be exercised by contacting us at the relevant contact information listed in this Privacy Policy.</p>
       <p className="mt-4 text-muted">Article 18 - CONTACT INFORMATION:</p>
-      <p className="mt-4 text-muted">If you have any questions about this Privacy Policy or the way we collect information from you, or if you would like to launch a complaint about anything related to this Privacy Policy, you may contact us at the following email address: legal@tuataras.local.</p>
+      <p className="mt-4 text-muted">If you have any questions about this Privacy Policy or the way we collect information from you, or if you would like to launch a complaint about anything related to this Privacy Policy, you may contact us at the following email address: legal@tuataras.net.</p>
     </PageShell>
   );
 }

@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedProcesses } from "@/components/AnimatedProcesses";
 
 export const metadata: Metadata = {
-  title: "Process Consulting | Tuataras",
+  title: "Process Consulting" ,
   description: "Agile methodology, transparent communication and iterative delivery. This is how we work at Tuataras.",
 };
 

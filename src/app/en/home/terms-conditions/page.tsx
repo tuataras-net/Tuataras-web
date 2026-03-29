@@ -5,7 +5,7 @@ export default function Page() {
     <PageShell lang="en" title="Terms & Conditions">
       <p className="mt-4 text-muted">Terms &amp; Conditions</p>
       <p className="mt-4 text-muted">Effective Date: July 11th, 2019</p>
-      <p className="mt-4 text-muted">Site Covered: http://tuataras.local</p>
+      <p className="mt-4 text-muted">Site Covered: https://tuataras.net</p>
       <p className="mt-4 text-muted">THE AGREEMENT: The use of this website and services on this website provided by Inversiones TUATARAS LLC, (hereinafter referred to as "Company") are subject to the following Terms &amp; Conditions (hereinafter the "Agreement"), all parts and sub-parts of which are specifically incorporated by reference here. This Agreement shall govern the use of all pages on this website (hereinafter collectively referred to as "Website") and any services provided by or on this Website ("Services").</p>
       <p className="mt-4 text-muted">1) DEFINITIONS</p>
       <p className="mt-4 text-muted">The parties referred to in this Agreement shall be defined as follows:</p>
@@ -73,7 +73,7 @@ export default function Page() {
       <p className="mt-4 text-muted">g) HEADINGS FOR CONVENIENCE ONLY: Headings of parts and sub-parts under this Agreement are for convenience and organization, only. Headings shall not affect the meaning of any provisions of this Agreement.</p>
       <p className="mt-4 text-muted">h) NO AGENCY, PARTNERSHIP OR JOINT VENTURE: No agency, partnership, or joint venture has been created between the Parties as a result of this Agreement. No Party has any authority to bind the other to third parties.</p>
       <p className="mt-4 text-muted">i) FORCE MAJEURE: The Company is not liable for any failure to perform due to causes beyond its reasonable control including, but not limited to, acts of God, acts of civil authorities, acts of military authorities, riots, embargoes, acts of nature and natural disasters, and other acts which may be due to unforeseen circumstances.</p>
-      <p className="mt-4 text-muted">j) ELECTRONIC COMMUNICATIONS PERMITTED: Electronic communications are permitted to both Parties under this Agreement, including e-mail or fax. For any questions or concerns, please email Us at the following address: info@tuataras.local.</p>
+      <p className="mt-4 text-muted">j) ELECTRONIC COMMUNICATIONS PERMITTED: Electronic communications are permitted to both Parties under this Agreement, including e-mail or fax. For any questions or concerns, please email Us at the following address: info@tuataras.net.</p>
     </PageShell>
   );
 }

@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedDevOps } from "@/components/AnimatedDevOps";
 
 export const metadata: Metadata = {
-  title: "DevOps & Cloud Services | Tuataras",
+  title: "DevOps & Cloud Services" ,
   description: "Cloud infrastructure, CI/CD, automation and monitoring. AWS, GCP and Digital Ocean.",
 };
 

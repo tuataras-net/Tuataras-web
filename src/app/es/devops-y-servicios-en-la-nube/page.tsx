@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedDevOps } from "@/components/AnimatedDevOps";
 
 export const metadata: Metadata = {
-  title: "DevOps y Consultoría en la Nube | Tuataras",
+  title: "DevOps y Consultoría en la Nube" ,
   description: "Infraestructura cloud, CI/CD, automatización y monitoreo. AWS, GCP y Digital Ocean.",
 };
 

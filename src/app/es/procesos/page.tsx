@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedProcesses } from "@/components/AnimatedProcesses";
 
 export const metadata: Metadata = {
-  title: "Consultoría de Procesos | Tuataras",
+  title: "Consultoría de Procesos" ,
   description: "Metodología ágil, comunicación transparente y entregas iterativas. Así trabajamos en Tuataras.",
 };
 

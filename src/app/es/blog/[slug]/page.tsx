@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost("es", slug);
   if (!post) return {};
-  return { title: `${post.title} | Tuataras`, description: post.excerpt };
+  return { title: `${post.title}`, description: post.excerpt };
 }
 
 const categoryColors: Record<string, string> = {

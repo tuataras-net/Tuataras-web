@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "About Us | Tuataras",
+  title: "About Us" ,
   description: "We are a web development and digital consulting firm with over 10 years of experience. Developers, designers and consultants passionate about technology.",
   openGraph: {
-    title: "About Us | Tuataras",
+    title: "About Us" ,
     description: "10+ years building digital solutions for companies in Panama and worldwide.",
     url: "https://tuataras.io/en/about-us-development-company",
   },

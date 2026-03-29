@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Services | Tuataras",
+  title: "Services" ,
   description: "Web development, UX/UI, DevOps, e-learning and ICT consulting. Custom digital solutions for your business.",
 };
 

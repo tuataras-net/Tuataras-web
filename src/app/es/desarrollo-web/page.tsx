@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedTerminal } from "@/components/AnimatedTerminal";
 
 export const metadata: Metadata = {
-  title: "Desarrollo Web | Tuataras",
+  title: "Desarrollo Web" ,
   description: "Aplicaciones web escalables, SaaS, e-commerce y más. Construimos con tecnologías modernas y metodología ágil.",
 };
 

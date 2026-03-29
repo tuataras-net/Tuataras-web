@@ -1,11 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+const WA_NUMBER = "584241399078";
 
 type Lang = "es" | "en";
 
@@ -44,20 +41,22 @@ const t = {
 
 export function ContactForm({ lang }: { lang: Lang }) {
   const tx = t[lang];
-  const formRef = useRef<HTMLFormElement>(null);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
+  const [form, setForm] = useState({ from_name: "", company: "", reply_to: "", service: "", message: "" });
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!formRef.current) return;
-    setStatus("sending");
-    try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
-      setStatus("success");
-      formRef.current.reset();
-    } catch {
-      setStatus("error");
-    }
+    const { from_name, company, reply_to, service, message } = form;
+    const text = lang === "es"
+      ? `Hola equipo de Tuataras,\n\nMi nombre es ${from_name}${company ? `, de la empresa ${company}` : ""}.\n\nEstoy interesado/a en el servicio de ${service || "su empresa"} y me gustaría ponerme en contacto con ustedes.\n\n${message}\n\nPueden contactarme al correo: ${reply_to}`
+      : `Hello Tuataras team,\n\nMy name is ${from_name}${company ? `, from ${company}` : ""}.\n\nI am interested in ${service || "your services"} and would like to get in touch.\n\n${message}\n\nYou can reach me at: ${reply_to}`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    setStatus("success");
+    setForm({ from_name: "", company: "", reply_to: "", service: "", message: "" });
   }
 
   return (
@@ -75,40 +74,38 @@ export function ContactForm({ lang }: { lang: Lang }) {
           </button>
         </div>
       ) : (
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-6 grid gap-4">
+        <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="text-xs font-semibold uppercase tracking-wide text-muted">{tx.name}</label>
-              <input required type="text" name="from_name" placeholder={tx.namePh}
+              <input required type="text" name="from_name" placeholder={tx.namePh} value={form.from_name} onChange={handleChange}
                 className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-[#3ecf8e]" />
             </div>
             <div>
               <label className="text-xs font-semibold uppercase tracking-wide text-muted">{tx.company}</label>
-              <input type="text" name="company" placeholder={tx.companyPh}
+              <input type="text" name="company" placeholder={tx.companyPh} value={form.company} onChange={handleChange}
                 className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-[#3ecf8e]" />
             </div>
           </div>
           <div>
             <label className="text-xs font-semibold uppercase tracking-wide text-muted">{tx.email}</label>
-            <input required type="email" name="reply_to" placeholder={tx.emailPh}
+            <input required type="email" name="reply_to" placeholder={tx.emailPh} value={form.reply_to} onChange={handleChange}
               className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-[#3ecf8e]" />
           </div>
           <div>
             <label className="text-xs font-semibold uppercase tracking-wide text-muted">{tx.service}</label>
-            <select name="service" className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp focus:outline-none focus:ring-2 focus:ring-[#3ecf8e]">
+            <select name="service" value={form.service} onChange={handleChange} className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp focus:outline-none focus:ring-2 focus:ring-[#3ecf8e]">
               <option value="">{tx.servicePh}</option>
               {tx.services.map((s) => <option key={s}>{s}</option>)}
             </select>
           </div>
           <div>
             <label className="text-xs font-semibold uppercase tracking-wide text-muted">{tx.message}</label>
-            <textarea required name="message" rows={5} placeholder={tx.messagePh}
+            <textarea required name="message" rows={5} placeholder={tx.messagePh} value={form.message} onChange={handleChange}
               className="mt-2 w-full rounded-xl border border-corp bg-white px-4 py-3 text-sm text-corp placeholder:text-muted/50 focus:outline-none focus:ring-2 focus:ring-[#3ecf8e] resize-none" />
           </div>
-          {status === "error" && <p className="text-sm text-red-500">{tx.error}</p>}
-          <button type="submit" disabled={status === "sending"}
-            className="btn-primary w-full rounded-full py-3 text-sm font-semibold disabled:opacity-60 disabled:cursor-not-allowed">
-            {status === "sending" ? tx.sending : tx.send}
+          <button type="submit" className="btn-primary w-full rounded-full py-3 text-sm font-semibold">
+            {tx.send}
           </button>
         </form>
       )}

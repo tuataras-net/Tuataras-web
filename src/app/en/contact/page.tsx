@@ -4,10 +4,10 @@ import { AnimatedContact } from "@/components/AnimatedContact";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Tuataras",
+  title: "Contact Us" ,
   description: "Tell us about your project. We reply within 24 hours. Email, WhatsApp or book a call directly.",
   openGraph: {
-    title: "Contact Us | Tuataras",
+    title: "Contact Us" ,
     description: "Tell us about your project. We reply within 24 hours.",
     url: "https://tuataras.io/en/contact",
   },
@@ -83,12 +83,12 @@ export default function Page() {
                 <p className="text-xs text-muted">Immediate response</p>
               </div>
             </a>
-            <a href="https://calendly.com/tuataras" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/584241399078?text=Hi%2C%20I%27d%20like%20to%20schedule%20a%20call%20with%20the%20Tuataras%20team." target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl border border-corp bg-corp-soft p-4 transition-all hover:-translate-y-1 hover:shadow-lg">
               <span className="text-2xl">📅</span>
               <div>
                 <p className="text-xs font-semibold text-corp">Book a call</p>
-                <p className="text-xs text-muted">Calendly</p>
+                <p className="text-xs text-muted">WhatsApp</p>
               </div>
             </a>
           </div>

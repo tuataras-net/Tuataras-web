@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | Tuataras",
+  title: "Política de Privacidad" ,
   description: "Política de privacidad y protección de datos de Tuataras.",
   robots: { index: false, follow: false },
 };
@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <PageShell lang="es" title="Política de privacidad">
       <p className="mt-4 text-muted">POLÍTICA DE PRIVACIDAD DEL SITIO WEB</p>
-      <p className="mt-4 text-muted">http://tuataras.local</p>
+      <p className="mt-4 text-muted">https://tuataras.net</p>
       <p className="mt-4 text-muted">POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS</p>
       <p className="mt-4 text-muted">Respetando lo establecido en la legislación vigente, Tuataras (en adelante, también Sitio Web) se compromete a adoptar las medidas técnicas y organizativas necesarias, según el nivel de seguridad adecuado al riesgo de los datos recogidos.</p>
       <p className="mt-4 text-muted">Leyes que incorpora esta política de privacidad</p>
@@ -23,13 +23,13 @@ export default function Page() {
       <p className="mt-4 text-muted">Identidad del responsable del tratamiento de los datos personales</p>
       <p className="mt-4 text-muted">Los responsables del tratamiento de los datos personales recogidos en Tuataras son:</p>
       <p className="mt-4 text-muted">Tuataras.LLC</p>
-      <p className="mt-4 text-muted">Los anteriores (en adelante, también Responsable del tratamiento) determinan conjuntamente los objetivos y los medios del tratamiento, siendo considerados corresponsables del tratamiento. Así, determinan de modo transparente y de mutuo acuerdo sus responsabilidades respectivas en el cumplimiento de las obligaciones impuestas por el RGPD. Respetando lo previsto en el artículo 26 del RGPD, los aspectos esenciales de dicho acuerdo estarán a disposición del Usuario en el siguiente enlace: http://tuataras.local</p>
+      <p className="mt-4 text-muted">Los anteriores (en adelante, también Responsable del tratamiento) determinan conjuntamente los objetivos y los medios del tratamiento, siendo considerados corresponsables del tratamiento. Así, determinan de modo transparente y de mutuo acuerdo sus responsabilidades respectivas en el cumplimiento de las obligaciones impuestas por el RGPD. Respetando lo previsto en el artículo 26 del RGPD, los aspectos esenciales de dicho acuerdo estarán a disposición del Usuario en el siguiente enlace: https://tuataras.net</p>
       <p className="mt-4 text-muted">Sus datos de contacto son los siguientes:</p>
       <p className="mt-4 text-muted">Dirección: 1480 NW North River Drive, Miami, FL 33125</p>
       <p className="mt-4 text-muted">Teléfono de contacto: SKYPE Tuataras</p>
-      <p className="mt-4 text-muted">Email de contacto: info@tuataras.local</p>
+      <p className="mt-4 text-muted">Email de contacto: info@tuataras.net</p>
       <p className="mt-4 text-muted">Delegado de Protección de Datos (DPD)</p>
-      <p className="mt-4 text-muted">El Delegado de Protección de Datos (DPD, o DPO por sus siglas en inglés) es el encargado de velar por el cumplimiento de la normativa de protección de datos a la cual se encuentra sujeta Tuataras. El Usuario puede contactar con el DPD designado por el Responsable del tratamiento utilizando los siguientes datos de contacto: info@tuataras.local.</p>
+      <p className="mt-4 text-muted">El Delegado de Protección de Datos (DPD, o DPO por sus siglas en inglés) es el encargado de velar por el cumplimiento de la normativa de protección de datos a la cual se encuentra sujeta Tuataras. El Usuario puede contactar con el DPD designado por el Responsable del tratamiento utilizando los siguientes datos de contacto: info@tuataras.net.</p>
       <p className="mt-4 text-muted">Registro de Datos de Carácter Personal</p>
       <p className="mt-4 text-muted">Los datos personales recabados por Tuataras, mediante los formularios extendidos en sus páginas, serán introducidos en un fichero automatizado bajo la responsabilidad del Responsable del tratamiento, y debidamente declarado e inscrito en el Registro General de la Agencia de Protección de Datos que se puede consultar en el sitio web de la Agencia Española de Protección de Datos (http://www.agpd.es), con la finalidad de poder facilitar, agilizar y cumplir los compromisos establecidos entre Tuataras y el Usuario o el mantenimiento de la relación que se establezca en los formularios que este rellene, o para atender una solicitud o consulta del mismo.</p>
       <p className="mt-4 text-muted">Principios aplicables al tratamiento de los datos personales</p>
@@ -69,7 +69,7 @@ export default function Page() {
       <p className="mt-4 text-muted">Derecho a la potabilidad de los datos: En caso de que el tratamiento se efectúe por medios automatizados, el Usuario tendrá derecho a recibir del Responsable del tratamiento sus datos personales en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable del tratamiento. Siempre que sea técnicamente posible, el Responsable del tratamiento transmitirá directamente los datos a ese otro responsable.</p>
       <p className="mt-4 text-muted">Derecho de oposición: Es el derecho del Usuario a que no se lleve a cabo el tratamiento de sus datos de carácter personal o se cese el tratamiento de los mismos por parte de Tuataras.</p>
       <p className="mt-4 text-muted">Derecho a no ser a no ser objeto de una decisión basada únicamente en el tratamiento automatizado, incluida la elaboración de perfiles: Es el derecho del Usuario a no ser objeto de una decisión individualizada basada únicamente en el tratamiento automatizado de sus datos personales, incluida la elaboración de perfiles, existente salvo que la legislación vigente establezca lo contrario.</p>
-      <p className="mt-4 text-muted">Así pues, el Usuario podrá ejercitar sus derechos mediante comunicación escrita dirigida al Responsable del tratamiento con la referencia "RGPD- http://tuataras.local especificando:</p>
+      <p className="mt-4 text-muted">Así pues, el Usuario podrá ejercitar sus derechos mediante comunicación escrita dirigida al Responsable del tratamiento con la referencia "RGPD- https://tuataras.net especificando:</p>
       <p className="mt-4 text-muted">Nombre, apellidos del Usuario y copia del DNI. En los casos en que se admita la representación, será también necesaria la identificación por el mismo medio de la persona que representa al Usuario, así como el documento acreditativo de la representación. La fotocopia del DNI podrá ser sustituida, por cualquier otro medio válido en derecho que acredite la identidad.</p>
       <p className="mt-4 text-muted">Petición con los motivos específicos de la solicitud o información a la que se quiere acceder.</p>
       <p className="mt-4 text-muted">Domicilio a efecto de notificaciones.</p>
@@ -77,7 +77,7 @@ export default function Page() {
       <p className="mt-4 text-muted">Todo documento que acredite la petición que formula.</p>
       <p className="mt-4 text-muted">Esta solicitud y todo otro documento adjunto podrá enviarse a la siguiente dirección y/o correo electrónico:</p>
       <p className="mt-4 text-muted">Dirección postal:</p>
-      <p className="mt-4 text-muted">Correo electrónico: info@tuataras.local</p>
+      <p className="mt-4 text-muted">Correo electrónico: info@tuataras.net</p>
       <p className="mt-4 text-muted">Reclamaciones ante la autoridad de control</p>
       <p className="mt-4 text-muted">En caso de que el Usuario considere que existe un problema o infracción de la normativa vigente en la forma en la que se están tratando sus datos personales, tendrá derecho a la tutela judicial efectiva y a presentar una reclamación ante una autoridad de control, en particular, en el Estado en el que tenga su residencia habitual, lugar de trabajo o lugar de la supuesta infracción. En el caso de España, la autoridad de control es la Agencia Española de Protección de Datos (http://www.agpd.es).</p>
       <p className="mt-4 text-muted">POLÍTICA DE COOKIES</p>

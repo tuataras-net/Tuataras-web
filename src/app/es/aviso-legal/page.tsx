@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Aviso Legal | Tuataras",
+  title: "Aviso Legal" ,
   description: "Aviso legal y condiciones de uso de Tuataras.",
   robots: { index: false, follow: false },
 };
@@ -11,13 +11,13 @@ export default function Page() {
   return (
     <PageShell lang="es" title="Aviso Legal">
       <p className="mt-4 text-muted">AVISO LEGAL Y CONDICIONES GENERALES DE USO DEL SITIO WEB</p>
-      <p className="mt-4 text-muted">http://tuataras.local</p>
+      <p className="mt-4 text-muted">https://tuataras.net</p>
       <p className="mt-4 text-muted">INFORMACIÓN GENERAL</p>
       <p className="mt-4 text-muted">En cumplimiento con el deber de información dispuesto en la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico (LSSI-CE) de 11 de julio, se facilitan a continuación los siguientes datos de información general de este sitio web:</p>
-      <p className="mt-4 text-muted">La titularidad de este sitio web, http://tuataras.local, (en adelante, Sitio Web) la ostenta: TUATARAS LLC, provista de EIN: 85-3100321 e inscrita en: Florida, USA con los siguientes datos regístrales: L18000095417, cuyo representante es: Tuataras LLC, y cuyos datos de contacto son:</p>
+      <p className="mt-4 text-muted">La titularidad de este sitio web, https://tuataras.net, (en adelante, Sitio Web) la ostenta: TUATARAS LLC, provista de EIN: 85-3100321 e inscrita en: Florida, USA con los siguientes datos regístrales: L18000095417, cuyo representante es: Tuataras LLC, y cuyos datos de contacto son:</p>
       <p className="mt-4 text-muted">Dirección: 1480 NW North River Drive, Miami, FL 33125</p>
       <p className="mt-4 text-muted">Teléfono de contacto: SKYPE: Tuataras</p>
-      <p className="mt-4 text-muted">Email de contacto: info@tuataras.local</p>
+      <p className="mt-4 text-muted">Email de contacto: info@tuataras.net</p>
       <p className="mt-4 text-muted">TÉRMINOS Y CONDICIONES GENERALES DE USO</p>
       <p className="mt-4 text-muted">El objeto de las condiciones: El Sitio Web</p>
       <p className="mt-4 text-muted">El objeto de las presentes Condiciones Generales de Uso (en adelante, Condiciones) es regular el acceso y la utilización del Sitio Web. A los efectos de las presentes Condiciones se entenderá como Sitio Web: la apariencia externa de los interfaces de pantalla, tanto de forma estática como de forma dinámica, es decir, el árbol de navegación; y todos los elementos integrados tanto en los interfaces de pantalla como en el árbol de navegación (en adelante, Contenidos) y todos aquellos servicios o recursos en línea que en su caso ofrezca a los Usuarios (en adelante, Servicios).</p>
@@ -49,7 +49,7 @@ export default function Page() {
       <p className="mt-4 text-muted">El responsable del tratamiento de los datos personales recogidos en Tuataras es: TUATARAS ENTERPRISES USA.LLC, provista de EIN: 84-3235150 e inscrita en: Florida, USA con los siguientes datos regístrales: L19000218632, cuyo representante es: Tuataras Enterprise USA.LLC, y cuyos datos de contacto son:</p>
       <p className="mt-4 text-muted">Dirección: 2385 NW Executive Center Drive, Suite 100, Boca Raton, FL 33431 UN</p>
       <p className="mt-4 text-muted">Teléfono de contacto: SKYPE: Tuataras</p>
-      <p className="mt-4 text-muted">Email de contacto: info@tuataras.local</p>
+      <p className="mt-4 text-muted">Email de contacto: info@tuataras.net</p>
       <p className="mt-4 text-muted">Registro de Datos de Carácter Personal</p>
       <p className="mt-4 text-muted">Los datos personales recabados por Tuataras, mediante los formularios extendidos en sus páginas, serán introducidos en un fichero automatizado bajo la responsabilidad del Responsable del tratamiento, y debidamente declarado e inscrito en el Registro General de la Agencia de Protección de Datos que se puede consultar en el sitio web de la Agencia Española de Protección de Datos (http://www.agpd.es), con la finalidad de poder facilitar, agilizar y cumplir los compromisos establecidos entre Tuataras y el Usuario o el mantenimiento de la relación que se establezca en los formularios que este rellene, o para atender una solicitud o consulta del mismo.</p>
       <p className="mt-4 text-muted">Principios aplicables al tratamiento de los datos personales</p>
@@ -93,7 +93,7 @@ export default function Page() {
       <p className="mt-4 text-muted">Derecho a la portabilidad de los datos: En caso de que el tratamiento se efectúe por medios automatizados, el Usuario tendrá derecho a recibir del Responsable del tratamiento sus datos personales en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable del tratamiento. Siempre que sea técnicamente posible, el Responsable del tratamiento transmitirá directamente los datos a ese otro responsable.</p>
       <p className="mt-4 text-muted">Derecho de oposición: Es el derecho del Usuario a que no se lleve a cabo el tratamiento de sus datos de carácter personal o se cese el tratamiento de los mismos por parte de Tuataras.</p>
       <p className="mt-4 text-muted">Derecho a no ser a no ser objeto de una decisión basada únicamente en el tratamiento automatizado, incluida la elaboración de perfiles: Es el derecho del Usuario a no ser objeto de una decisión individualizada basada únicamente en el tratamiento automatizado de sus datos personales, incluida la elaboración de perfiles, existente salvo que la legislación vigente establezca lo contrario.</p>
-      <p className="mt-4 text-muted">Así pues, el Usuario podrá ejercitar sus derechos mediante comunicación escrita dirigida al Responsable del tratamiento con la referencia "RGPD-http://tuataras.local especificando:</p>
+      <p className="mt-4 text-muted">Así pues, el Usuario podrá ejercitar sus derechos mediante comunicación escrita dirigida al Responsable del tratamiento con la referencia "RGPD-https://tuataras.net especificando:</p>
       <p className="mt-4 text-muted">Nombre, apellidos del Usuario y copia del DNI. En los casos en que se admita la representación, será también necesaria la identificación por el mismo medio de la persona que representa al Usuario, así como el documento acreditativo de la representación. La fotocopia del DNI podrá ser sustituida, por cualquier otro medio válido en derecho que acredite la identidad.</p>
       <p className="mt-4 text-muted">Petición con los motivos específicos de la solicitud o información a la que se quiere acceder.</p>
       <p className="mt-4 text-muted">Domicilio a efecto de notificaciones.</p>
@@ -101,7 +101,7 @@ export default function Page() {
       <p className="mt-4 text-muted">Todo documento que acredite la petición que formula.</p>
       <p className="mt-4 text-muted">Esta solicitud y todo otro documento adjunto podrá enviarse a la siguiente dirección y/o correo electrónico:</p>
       <p className="mt-4 text-muted">Dirección postal:</p>
-      <p className="mt-4 text-muted">Correo electrónico: info@tuataras.local</p>
+      <p className="mt-4 text-muted">Correo electrónico: info@tuataras.net</p>
       <p className="mt-4 text-muted">Enlaces a sitios web de terceros</p>
       <p className="mt-4 text-muted">El Sitio Web puede incluir hipervínculos o enlaces que permiten acceder a páginas web de terceros distintos de Tuataras, y que por tanto no son operados por Tuataras. Los titulares de dichos sitios web dispondrán de sus propias políticas de protección de datos, siendo ellos mismos, en cada caso, responsables de sus propios ficheros y de sus propias prácticas de privacidad.</p>
       <p className="mt-4 text-muted">Reclamaciones ante la autoridad de control</p>

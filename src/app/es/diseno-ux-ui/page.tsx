@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedUXUI } from "@/components/AnimatedUXUI";
 
 export const metadata: Metadata = {
-  title: "Diseño UX / UI | Tuataras",
+  title: "Diseño UX / UI" ,
   description: "Prototipos de alta fidelidad, investigación de usuario y diseño centrado en resultados de negocio.",
 };
 

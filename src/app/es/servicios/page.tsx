@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 
 export const metadata: Metadata = {
-  title: "Servicios | Tuataras",
+  title: "Servicios" ,
   description: "Desarrollo web, UX/UI, DevOps, e-learning y consultoría TIC. Soluciones digitales a medida para tu empresa.",
 };
 

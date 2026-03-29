@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { AnimatedTIC } from "@/components/AnimatedTIC";
 
 export const metadata: Metadata = {
-  title: "Soluciones Tecnológicas TIC | Tuataras",
+  title: "Soluciones Tecnológicas TIC" ,
   description: "Gestión de infraestructura TIC, transformación digital, consultoría estratégica y ciberseguridad.",
 };
 

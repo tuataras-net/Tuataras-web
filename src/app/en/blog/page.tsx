@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog | Tuataras",
+  title: "Blog" ,
   description: "Articles on web development, UX/UI, DevOps, e-learning and digital consulting.",
 };
 
