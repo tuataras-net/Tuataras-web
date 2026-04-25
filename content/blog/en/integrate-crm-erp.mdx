@@ -1,0 +1,105 @@
+---
+title: "Integrate your CRM with your ERP without losing your mind"
+excerpt: "Proven patterns to connect CRM and ERP, common pitfalls, and how to choose between native, iPaaS or custom development."
+date: "2026-02-27"
+author: "Tuataras Team"
+category: "Automation"
+coverImage: "/illustrations/automation.svg"
+readTime: 7
+---
+
+Your sales team lives in the CRM. Admin team lives in the ERP. If they don't talk, manual data copying costs more than integration. Here's how to do it right.
+
+## The 4 integration options
+
+### 1. Native connectors
+HubSpot ↔ NetSuite, Salesforce ↔ SAP, Pipedrive ↔ QuickBooks. If it exists, usually most cost-effective.
+**Cost**: $0–$500/mo extra.
+
+### 2. iPaaS (integration platform as a service)
+Workato, Tray.io, Boomi, Mulesoft. Platforms for complex integrations without code.
+**Cost**: $1k–$15k/mo by volume.
+
+### 3. No-code / low-code
+Make, n8n, Zapier for simple to mid cases.
+**Cost**: $50–$500/mo.
+
+### 4. Custom
+Dedicated dev via APIs. Full flexibility, your own maintenance.
+**Cost**: $30k–$150k upfront + maintenance.
+
+## How to choose
+
+| Your situation | Recommended |
+|---|---|
+| Mainstream systems + standard flows | Native connector |
+| Multiple systems + transformation logic | iPaaS |
+| Few flows, small budget | No-code |
+| Unique logic + high volume | Custom |
+
+## Flows you must integrate
+
+### Lead → Customer
+- Deal closes in CRM → creates customer record in ERP.
+- Data: name, tax ID, contacts, terms.
+- **Without it**: manual re-typing, tax errors.
+
+### Customer → Billing
+- ERP issues invoice → CRM sees it attached to deal.
+- Payment status returns to CRM.
+- **Without it**: sales doesn't know who paid.
+
+### Product / catalog
+- ERP source of truth for products, prices, stock.
+- CRM syncs for quoting.
+- **Without it**: outdated quotes.
+
+### Forecast → Production
+- CRM pipeline projects demand.
+- ERP/MRP plans procurement and production.
+
+## Technical decisions that matter
+
+### Source of truth per entity
+For each data point (customer, product, account), one is source of truth. Other reads. Without this, divergence guaranteed.
+
+### Sync: real-time vs batch
+- **Real-time** (webhooks, events): for operationally critical data (e.g., stock).
+- **Batch** (every N min/hours): for reports and aggregates.
+- Mix by criticality — not everything needs to be instant.
+
+### Error handling
+Every integration eventually fails. Design:
+- **Retries** with exponential backoff.
+- **Dead letter queue** for manual review.
+- **Alerts** when errors exceed tolerance.
+- **Idempotency**: re-processing same event doesn't duplicate.
+
+## Fatal mistakes
+
+- **Sync everything**: more data, more breakage. Start with critical.
+- **No documented field map**: nobody knows why "country" in one is "country_iso2" in other.
+- **No observability**: don't know what runs, when, what fails.
+- **Strong coupling**: change in one breaks the other.
+
+## Implementation plan
+
+**Month 1**: discovery. Critical data and flow mapping. Source of truth definition.
+
+**Month 2**: most-critical flow integration. Staging tests. Limited go-live.
+
+**Month 3**: expansion to next flows. Monitoring, adjustments.
+
+**Month 4+**: operation, continuous improvement.
+
+## Real case
+
+Distribution company with HubSpot + SAP B1 connected via Excel. 2 people full-time copying data. Monthly tax errors.
+
+Post-integration (iPaaS, 3 months): 0 human hours on sync, errors essentially eliminated, sales has real-time payment visibility.
+
+**ROI**: 7-month payback, estimated annual savings $80k.
+
+## Conclusion
+
+Integrating CRM with ERP is among highest-ROI projects when done with discipline. Want help evaluating yours? [Let's talk](/en/contact).

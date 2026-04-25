@@ -1,0 +1,74 @@
+---
+title: "Observabilidad: detectar bugs antes que tu cliente los reporte"
+excerpt: "Logs, métricas y traces explicados sin jerga. Cómo construir observabilidad que realmente sirve para detectar y resolver problemas."
+date: "2026-03-25"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/monitoring.svg"
+readTime: 6
+---
+
+Si te enterás de los bugs porque un cliente los reportó, llegás tarde. La observabilidad bien hecha te avisa antes — y te dice qué romper antes de que el equipo de soporte responda el primer ticket.
+
+## Los 3 pilares (con ejemplos reales)
+
+### 1. Logs
+Eventos discretos con contexto. Ejemplo: "user 123 attempted login, failed, IP X".
+**Para qué sirve**: investigar qué pasó tras el hecho.
+
+### 2. Metrics
+Series temporales de números. Ejemplo: "requests/sec = 432, error rate = 1.2%".
+**Para qué sirve**: alertar cuando algo se desvía.
+
+### 3. Traces
+Recorrido de una request por todos los servicios. Ejemplo: "request X tomó 3.2s — 200ms en API, 2.5s en query, 500ms en payment service".
+**Para qué sirve**: encontrar el cuello de botella en sistemas distribuidos.
+
+## Stack moderno 2026
+
+- **Datadog / New Relic / Honeycomb**: enterprise, todo-en-uno.
+- **Grafana + Prometheus + Loki + Tempo**: open source potente.
+- **OpenTelemetry**: estándar para instrumentar.
+- **Sentry**: errores en frontend + backend, con stack trace completo.
+- **Better Stack / Axiom**: alternativas modernas con buena UX.
+
+## Las alertas que no debés ignorar
+
+| Tipo | Alerta cuándo |
+|---|---|
+| Disponibilidad | Healthcheck falla >2 min |
+| Error rate | >1% durante 5 min |
+| Latencia P99 | >2x baseline |
+| Memoria/CPU | >85% sostenido |
+| Negocio | Sign-ups caen 30% vs hora típica |
+
+## Las alertas que SÍ debés ignorar (eliminar)
+
+- Las que disparan más de 1 vez/día sin acción real.
+- Las que requieren investigar 5 min para saber si son reales.
+- Las "informativas" que nadie revisa.
+
+**Regla**: cada alerta debe ser accionable. Si no, es ruido — y el ruido entrena al equipo a ignorar.
+
+## Métricas de negocio (no solo técnicas)
+
+Las métricas más valiosas son las que cruzan tech y negocio:
+- Conversiones por minuto vs media móvil.
+- Tasa de checkout completado.
+- Sesiones activas vs estacionalidad esperada.
+
+Caída en estas anticipa caídas de revenue antes que las métricas técnicas las muestren.
+
+## El "blameless postmortem"
+
+Cuando algo falla, el postmortem se enfoca en:
+- Qué pasó (timeline factual)
+- Cómo se detectó
+- Qué tan rápido se respondió
+- Qué se aprendió (acciones, no culpables)
+
+Sin esto, el aprendizaje se pierde y los bugs se repiten.
+
+## Conclusión
+
+Observabilidad bien hecha es la diferencia entre "tenemos un incidente" y "tuvimos un incidente que nadie notó". Cuesta esfuerzo inicial y paga compounding. ¿Te ayudamos a montar la tuya? [Conversemos](/es/contacto).

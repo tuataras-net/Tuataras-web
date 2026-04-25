@@ -1,0 +1,97 @@
+---
+title: "Internacionalización (i18n) bien hecha: el SEO multilingüe que no rompe rankings"
+excerpt: "Errores comunes al internacionalizar tu sitio y cómo hacerlo de manera que sume tráfico, no que destruya posicionamiento."
+date: "2026-02-11"
+author: "Equipo Tuataras"
+category: "SEO"
+coverImage: "/illustrations/web-dev.svg"
+readTime: 6
+---
+
+Internacionalizar mal tu sitio puede borrar 6 meses de SEO. Bien hecho, abre mercados enteros con tráfico orgánico que ya estaba esperando. La diferencia está en decisiones técnicas que pocos resuelven correctamente.
+
+## Las 3 estrategias de URL
+
+### 1. Subdomains (es.midominio.com)
+- **Pro**: separación clara, hosting independiente posible.
+- **Contra**: Google los trata como sites separados, hay que construir autoridad de cada uno.
+
+### 2. Subdirectories (midominio.com/es/)
+- **Pro**: aprovecha autoridad de dominio raíz, gestión más simple.
+- **Contra**: hosting único, menos flexibilidad geo.
+- **El más recomendado** para mayoría de casos.
+
+### 3. ccTLDs (midominio.es, midominio.mx)
+- **Pro**: señal geográfica fuerte, confianza local.
+- **Contra**: cada dominio empieza de cero en SEO, costo y operación.
+- **Para empresas** con mercado prioritario en países específicos.
+
+## La etiqueta hreflang (sin esto, todo se rompe)
+
+Le dice a Google "esta página es la versión de X idioma/país de Y página".
+
+```html
+<link rel="alternate" hreflang="es" href="https://midominio.com/es/" />
+<link rel="alternate" hreflang="en" href="https://midominio.com/en/" />
+<link rel="alternate" hreflang="x-default" href="https://midominio.com/" />
+```
+
+**Reglas críticas**:
+- **Bidireccionalidad**: si A apunta a B, B debe apuntar a A.
+- **Self-referencing**: la página debe incluirse a sí misma.
+- **x-default**: para usuarios cuyo idioma no calza con ninguna versión.
+- **Códigos correctos**: ISO 639-1 (idioma) + ISO 3166-1 (país opcional).
+
+## Errores que matan el SEO multilingüe
+
+### 1. Traducir solo el contenido visible
+- Olvidar: meta titles, meta descriptions, alt texts, schema.org, OG tags, slugs de URL.
+
+### 2. Usar Google Translate en producción
+- Contenido auto-traducido sin revisión humana es de baja calidad y Google lo detecta.
+
+### 3. Mismo contenido en múltiples URLs sin canonicalizar
+- es.midominio.com y midominio.com/es/ con mismo contenido = duplicate content.
+
+### 4. Geo-redirect basado en IP sin opción
+- Frustra al usuario y rompe crawling de Google.
+- Mejor: detectar idioma + ofrecer cambiar, no forzar.
+
+### 5. Hreflang mal configurado
+- El error más común. Una mala configuración invalida todo.
+
+### 6. Sitemap unificado sin estructura
+- Cada idioma debería tener su sitemap referenciado en sitemap index.
+
+## Lo que sí debés traducir/adaptar
+
+- **Contenido editorial completo** (no auto-traducido).
+- **Slugs de URL** en idioma local (`/blog/articulo` no `/blog/post`).
+- **Metadata**: titles, descriptions.
+- **Schema markup** localizado.
+- **Imágenes con texto** o que tengan referencias culturales.
+- **Formato de fechas, monedas, números**.
+- **Llamadas a la acción** según costumbre local.
+
+## Lo que NO duplica esfuerzo
+
+- **CSS, JS, infraestructura técnica**: una sola.
+- **Imágenes sin texto**: una sola, alt traducido.
+- **Componentes UI**: una vez con i18n.
+
+## Stack 2026 para sitios multilingüe
+
+- **Next.js + next-intl** o **next-i18next**.
+- **Astro + Astro i18n**.
+- **Headless CMS** con multi-locale nativo (Sanity, Contentful, Storyblok).
+- **Linguana, Weglot, Localize**: solución overlay si no podés tocar el sitio actual (peor SEO que i18n nativa, mejor que nada).
+
+## Caso real
+
+Sitio B2B presente solo en español, audiencia objetivo mayormente en LATAM + España. Traducción al inglés mal hecha (Translate plugin, sin hreflang) destruyó SEO en español por duplicados.
+
+Re-implementación con i18n nativa, hreflang correcto, traducciones humanas, slugs locales: tráfico orgánico total +95% en 6 meses, con tráfico inglés representando 38% del nuevo.
+
+## Conclusión
+
+i18n bien hecha es palanca de crecimiento orgánico enorme. Mal hecha, destrucción de tráfico. Vale la pena hacerla bien desde el día 1. ¿Te ayudamos? [Conversemos](/es/contacto).

@@ -1,0 +1,82 @@
+---
+title: "CI/CD pipelines: from zero to first production deploy"
+excerpt: "Practical guide to implement your first CI/CD pipeline: modern stack, critical stages, and common mistakes to avoid."
+date: "2026-03-27"
+author: "Tuataras Team"
+category: "DevOps"
+coverImage: "/illustrations/cicd.svg"
+readTime: 6
+---
+
+If you still deploy by uploading files via SFTP or "Monday at 6am when nobody's around", you're leaving speed and reliability on the table. Modern CI/CD lets you deploy multiple times a day with confidence.
+
+## The 5 minimum stages
+
+1. **Build**: compile/transpile, create artifact.
+2. **Test**: unit + integration + lint.
+3. **Security scan**: vulnerabilities in deps and code.
+4. **Deploy to staging**: prod mirror.
+5. **Deploy to production**: with approval or auto depending on maturity.
+
+## Modern 2026 stack
+
+- **GitHub Actions / GitLab CI**: dominant platforms, repo-integrated.
+- **Vercel / Netlify**: modern frontends, auto-deploy on push.
+- **Argo CD / Flux**: GitOps for Kubernetes.
+- **Terraform / Pulumi**: infrastructure as code.
+
+## Minimum viable first pipeline
+
+```yaml
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./deploy.sh
+```
+
+Already gives you: nobody deploys code that didn't pass tests, auto-deploy on push to main.
+
+## Gates code must pass
+
+| Gate | Blocks if fails |
+|---|---|
+| Linter / formatter | Yes (auto-fixable) |
+| Unit tests | Yes |
+| Min coverage (e.g. 70%) | Configurable |
+| Security scan (Snyk, Dependabot) | Yes for criticals |
+| Build success | Yes |
+
+## Safe deploy strategies
+
+- **Blue-Green**: two environments, instant switch, rollback in seconds.
+- **Canary**: 5% new traffic → monitor → gradual scale.
+- **Feature flags**: deploy ≠ release. Activate features when you choose.
+- **Rolling**: per-instance update, no downtime.
+
+## Common mistakes
+
+- **Slow tests**: if your suite takes 30 min, nobody waits. Optimize or parallelize.
+- **No real staging**: deploying to prod "hoping it works".
+- **Secrets in code**: use secret managers (Vault, AWS Secrets Manager).
+- **No auto rollback**: if metric X drops, revert automatically.
+
+## DORA metrics you gain with good CI/CD
+
+- **Deployment frequency**: from monthly to daily+.
+- **Lead time**: from days to hours.
+- **MTTR**: from hours to minutes.
+- **Change failure rate**: typically drops with good gates.
+
+## Conclusion
+
+CI/CD isn't luxury for big teams — it's basic hygiene for any serious dev team in 2026. Want help setting yours up? [Let's talk](/en/contact).

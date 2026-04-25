@@ -1,0 +1,78 @@
+---
+title: "SRE para equipos pequeños: la versión pragmática de Site Reliability Engineering"
+excerpt: "Cómo aplicar prácticas SRE sin tener equipo dedicado de 20 personas. SLOs, error budgets y on-call para equipos chicos."
+date: "2026-03-21"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/monitoring.svg"
+readTime: 6
+---
+
+SRE nació en Google con equipos enormes. Pero los principios funcionan a cualquier escala — incluso si tu "equipo de plataforma" sos vos solo. Te mostramos la versión adaptada para equipos de 5–30 personas.
+
+## Los 3 conceptos que importan
+
+### 1. SLO (Service Level Objective)
+"Nuestra API responde en &lt;500ms el 99.5% del tiempo este trimestre."
+- Una promesa medible.
+- Acordada entre producto y eng.
+- Punto de partida para todo lo demás.
+
+### 2. Error budget
+Si tu SLO es 99.5%, tu error budget es 0.5% de downtime/mes (~3.6h).
+- Si te queda budget → podés hacer cambios riesgosos, deploys frecuentes.
+- Si lo gastaste → freeze de cambios no críticos hasta recuperarlo.
+
+### 3. Toil
+Trabajo manual repetitivo y reactivo. La meta SRE es &lt;50% del tiempo en toil.
+- Si pasás más, automatizás más.
+- Mídelo: un sprint, anotá cada hora cuál fue toil.
+
+## El stack mínimo
+
+- **Uptime monitoring**: Better Stack, Pingdom, Healthchecks.io.
+- **Error tracking**: Sentry.
+- **Logs**: Logtail, Axiom o cloud nativo.
+- **Status page**: Statuspage.io o Better Stack.
+- **On-call rotation**: Better Stack, PagerDuty, Opsgenie.
+
+Total mensual para equipo chico: $50–$300.
+
+## On-call para equipos de 4–8 devs
+
+- **Rotación semanal**, no por turnos cortos (cansa más).
+- **Solo alertas verdaderamente urgentes** despiertan.
+- **Compensación clara**: o pagada, o tiempo libre, o ambas.
+- **Runbook por alerta**: la persona on-call no debe debuggear desde cero.
+- **Post-mortem siempre**, sin culpa, con acción concreta.
+
+## El runbook esencial
+
+Por cada alerta crítica, documentá:
+1. **Qué significa** la alerta.
+2. **Qué impacto** tiene en cliente.
+3. **Cómo verificar** si es real (no falso positivo).
+4. **Cómo mitigar** rápido (rollback, scale, kill).
+5. **Cómo escalar** si no podés resolver en X min.
+
+Sin runbook = cada incidente es ansiedad de cero.
+
+## Práctica recomendada: chaos engineering ligero
+
+Una vez al trimestre:
+- Apagar deliberadamente un servicio en staging.
+- Ver qué falla, qué se recupera, qué te enterás tarde.
+- Mejorar lo que apareció.
+
+No necesitás Chaos Monkey — `kubectl delete pod` o `aws ec2 terminate-instances` alcanza.
+
+## Errores comunes en equipos chicos
+
+- SLOs aspiracionales (99.99%) que nadie puede cumplir.
+- Alertas demasiado sensibles que entrenan a ignorar.
+- Sin error budget → todo es prioridad → nada es prioridad.
+- Mirar disponibilidad técnica pero no UX real (sintéticos vs reales).
+
+## Conclusión
+
+SRE no requiere equipo grande — requiere disciplina y herramientas correctas. Bien aplicado en equipo chico, mejora calidad sin sacrificar velocidad. ¿Querés montar tu práctica SRE? [Conversemos](/es/contacto).

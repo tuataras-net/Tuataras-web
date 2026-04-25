@@ -1,0 +1,93 @@
+---
+title: "Legacy system modernization: step-by-step plan without breaking operations"
+excerpt: "How to migrate from legacy to modern tech without halting the business. Proven strategies and pitfalls to avoid."
+date: "2026-03-17"
+author: "Tuataras Team"
+category: "Consulting"
+coverImage: "/illustrations/digital-transform.svg"
+readTime: 7
+---
+
+Your critical system runs on tech few people maintain, support costs grow, and any improvement is blocked. Time to modernize — but doing it without breaking the business is the real challenge.
+
+## The 6 modernization strategies (the 6 Rs)
+
+### 1. Rehost ("lift and shift")
+Move as-is to cloud. Fast, low risk, limited benefits.
+**Good for**: when time-to-cloud is priority and architecture is reasonable.
+
+### 2. Replatform
+Move to cloud with minor changes (managed DB, container).
+**Good for**: quick wins without rewriting.
+
+### 3. Repurchase
+Replace with commercial SaaS.
+**Good for**: standard processes (HR, accounting, basic CRM).
+
+### 4. Refactor
+Rewrite preserving equivalent functionality.
+**Good for**: business core needing deep modernization.
+
+### 5. Rearchitect
+Rethink architecture entirely (monolith → services, on-prem → cloud-native).
+**Good for**: systems needing different scaling or fundamental change.
+
+### 6. Retire
+Turn it off. Sounds obvious but 15% of legacy systems aren't really used anymore.
+
+## The Strangler Fig pattern
+
+Most used and successful. Idea: instead of replacing the old system overnight, **strangle it gradually**.
+
+1. Build new functionality as separate service.
+2. Gateway/API in front decides: old or new system?
+3. Migrate features one at a time, in production, with instant rollback.
+4. When old has no traffic, turn it off.
+
+Typical timeline: 12–36 months for medium systems. Controlled risk.
+
+## Typical 18-month plan
+
+**Months 1–3 — Discovery**
+- Real functionality inventory (vs documentation).
+- Dependency and data mapping.
+- Agreements on scope, success criteria and rollback.
+
+**Months 4–6 — New foundation**
+- Modern stack chosen and validated.
+- CI/CD pipeline working.
+- First minor feature migrated as test.
+
+**Months 7–14 — Progressive migration**
+- One feature per sprint with feature flags.
+- Comparative metrics old vs new.
+- Controlled coexistence.
+
+**Months 15–18 — Closure**
+- Retire last legacy pieces.
+- Decommission old infra.
+- Postmortem and learnings.
+
+## The real risks
+
+- **Data**: migration is 60% of the underestimated effort.
+- **Hidden logic**: docs are never complete. Rules in code nobody remembers.
+- **People**: those maintaining legacy sometimes resist — it's their power zone.
+- **Compliance**: regulatory reports can break in transit.
+
+## Project-killer mistakes
+
+- Big-bang rewrite (everything overnight).
+- Underestimating "legacy works" — inertia is real.
+- No executive sponsor sustaining the project in tough moments.
+- Changing requirements mid-project without re-planning.
+
+## Real case
+
+Client with critical system in COBOL + AS400 since 1998. Progressive migration to cloud microservices over 22 months.
+
+**Result**: 60% operational cost reduction, 8x faster releases, easier talent acquisition, flexibility for previously impossible new products.
+
+## Conclusion
+
+Legacy modernization isn't a tech project — it's a business project with a tech component. Done right, unlocks competitiveness. Done wrong, paralyzes the company. Want help planning yours? [Let's talk](/en/contact).

@@ -1,0 +1,102 @@
+---
+title: "Internal APIs: when to build them and when it's over-engineering"
+excerpt: "When an internal API makes sense in your company, when it's waste, and how to design ones that age well."
+date: "2026-02-25"
+author: "Tuataras Team"
+category: "Automation"
+coverImage: "/illustrations/saas.svg"
+readTime: 6
+---
+
+"Let's put an API on top" is easy to say. But an API without real use case is code to maintain without value to deliver. Here's when YES.
+
+## When YES build an internal API
+
+- **Multiple consumers** of the same data/process (web + mobile + backoffice).
+- **Business rules** you don't want to duplicate.
+- **Frequently changing data** needing clear source of truth.
+- **Future external integrations** planned.
+- **Different teams** working on the same domain.
+
+## When NO
+
+- 1 app consumes the data. Couple direct.
+- Data won't change in years (provinces, currencies).
+- No team to maintain it 2 years out.
+- No real case, just "just in case".
+
+## The 3 modern patterns
+
+### REST
+- The standard. HTTP verbs + resources.
+- Good for clear CRUD.
+- Simple caching.
+
+### GraphQL
+- Client requests only what's needed.
+- Good when consumers are many and heterogeneous (web, mobile).
+- More complex to cache and monitor.
+
+### gRPC / RPC
+- Brutal performance, strong contracts (Protobuf).
+- Good for internal service-to-service comms.
+- Not practical for browser frontends.
+
+## Design that ages well
+
+### Versioning from day 1
+`/api/v1/users` not `/api/users`. The day you need to change contracts, you'll thank yourself.
+
+### Living docs
+OpenAPI/Swagger generated from code, not handwritten. Without this, docs lie in 6 months.
+
+### Clear auth
+- **Authentication**: who are you? (JWT, OAuth, API keys)
+- **Authorization**: what can you do? (RBAC, ABAC, scopes)
+- Documented and tested.
+
+### Rate limiting
+Even if internal. A bug in another service shouldn't take the API down.
+
+### Structured errors
+
+```json
+{ "code": "USER_NOT_FOUND", "message": "...", "details": {...} }
+```
+
+With consistent codes the client can parse.
+
+### Per-endpoint logs and metrics
+P50/P95/P99 latency, error rate, throughput. Without this, debugging is guessing.
+
+## The most common mistake
+
+**Designing the API before having real consumers**. Result: endpoints nobody uses, others missing, contracts changing weekly.
+
+Better: API arises from concrete need. One consumer first, generalize after.
+
+## Anti-patterns
+
+- **"God endpoints"** returning entire DB models.
+- **Versioning by query string** mixed with header (inconsistency).
+- **No pagination** on lists that can grow.
+- **Coupling to DB schema**: every DB change breaks API.
+- **No contract testing** to catch regressions.
+
+## 2026 stack
+
+- **REST**: Node + Hono / Fastify, Python + FastAPI, Go + chi, Rails + ActionAPI.
+- **GraphQL**: Apollo Server, Hasura, Postgraphile.
+- **gRPC**: gRPC + Protobuf, ConnectRPC.
+- **Docs**: OpenAPI + Swagger UI or Redoc, GraphQL Playground.
+- **API Gateway**: Kong, Tyk, AWS API Gateway, Cloudflare API Shield.
+
+## Real case
+
+Company with legacy system + new web + mobile app + partner integrations. Pre-API: each consumer accessed DB directly. Any change broke 4 places.
+
+Post-API (well-designed middle layer, 4 months): DB changes isolated, new consumers in days not weeks, clear observability.
+
+## Conclusion
+
+A well-designed internal API is infrastructure that pays for years. Poorly designed, growing-cost tech debt. Want help designing yours? [Let's talk](/en/contact).

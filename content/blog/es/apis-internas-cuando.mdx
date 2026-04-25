@@ -1,0 +1,100 @@
+---
+title: "APIs internas: cuándo construirlas y cuándo es over-engineering"
+excerpt: "Cuándo conviene construir una API interna en tu empresa, cuándo es desperdicio y cómo diseñarlas para que perduren."
+date: "2026-02-25"
+author: "Equipo Tuataras"
+category: "Automatización"
+coverImage: "/illustrations/saas.svg"
+readTime: 6
+---
+
+"Pongámosle una API encima" se dice fácil. Pero una API sin caso de uso real es código que mantener sin valor que entregar. Te ayudamos a saber cuándo sí.
+
+## Cuándo SÍ construir una API interna
+
+- **Múltiples consumidores** del mismo dato/proceso (web + mobile + backoffice).
+- **Reglas de negocio** que no querés duplicar en varios lados.
+- **Datos que cambian frecuente** y necesitan source of truth claro.
+- **Integraciones externas** futuras planeadas.
+- **Equipos distintos** trabajando sobre el mismo dominio.
+
+## Cuándo NO
+
+- 1 sola app consume el dato. Acoplá directo.
+- El dato no va a cambiar en años (tabla de provincias, monedas).
+- No tenés equipo para mantenerla a 2 años vista.
+- No hay caso real, solo "por si acaso".
+
+## Los 3 patrones modernos
+
+### REST
+- El estándar. Verbos HTTP + recursos.
+- Bueno para CRUD claro.
+- Caching simple.
+
+### GraphQL
+- Cliente pide solo lo que necesita.
+- Bueno cuando consumidores son muchos y heterogéneos (web, mobile).
+- Más complejo de cachear y monitorear.
+
+### gRPC / RPC
+- Performance brutal, contratos fuertes (Protobuf).
+- Bueno para comunicación service-to-service interna.
+- No práctico para frontends de browser.
+
+## Diseño que envejece bien
+
+### Versionado desde el día 1
+`/api/v1/users` no `/api/users`. El día que necesités cambiar contratos, vas a agradecerlo.
+
+### Documentación viva
+OpenAPI/Swagger generado del código, no escrito a mano. Sin esto, la doc miente en 6 meses.
+
+### Autenticación y autorización clara
+- **Autenticación**: ¿quién sos? (JWT, OAuth, API keys)
+- **Autorización**: ¿qué podés hacer? (RBAC, ABAC, scopes)
+- Documentadas y testeadas.
+
+### Rate limiting
+Aunque sea interna. Un bug en otro servicio no debería tirar la API.
+
+### Errores estructurados
+```json
+{ "code": "USER_NOT_FOUND", "message": "...", "details": {...} }
+```
+Con códigos consistentes que el cliente pueda parsear.
+
+### Logs y métricas por endpoint
+Latencia P50/P95/P99, error rate, throughput. Sin esto, debugging es adivinanza.
+
+## El error más común
+
+**Diseñar la API antes de tener consumidores reales**. Resultado: endpoints que nadie usa, otros que faltan, contratos que cambian cada semana.
+
+Mejor: API surge de necesidad concreta. Un consumidor primero, generalizás después.
+
+## Anti-patrones
+
+- **Endpoints "Dios"** que devuelven todo el modelo de la BD.
+- **Versionado por query string** mezclado con header (inconsistencia).
+- **Sin paginación** en listas que pueden crecer.
+- **Acoplamiento al schema de BD**: cada cambio en BD rompe API.
+- **Sin testing de contrato** que detecte regresiones.
+
+## Stack 2026
+
+- **REST**: Node + Hono / Fastify, Python + FastAPI, Go + chi, Rails + ActionAPI.
+- **GraphQL**: Apollo Server, Hasura, Postgraphile.
+- **gRPC**: gRPC + Protobuf, ConnectRPC.
+- **Documentación**: OpenAPI + Swagger UI o Redoc, GraphQL Playground.
+- **API Gateway**: Kong, Tyk, AWS API Gateway, Cloudflare API Shield.
+
+## Caso real
+
+Empresa con sistema legacy + nueva web + app mobile + integraciones de partners. Pre-API: cada consumidor accedía a la BD directo. Cualquier cambio rompía 4 lados.
+
+Post-API (capa intermedia bien diseñada, 4 meses): cambios en BD aislados, nuevos consumidores en días no semanas, observabilidad clara.
+
+## Conclusión
+
+Una API interna bien diseñada es infraestructura que paga durante años. Mal diseñada, deuda técnica con costo de mantenimiento creciente. ¿Te ayudamos a diseñar la tuya? [Conversemos](/es/contacto).

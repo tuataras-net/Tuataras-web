@@ -1,0 +1,65 @@
+---
+title: "Design system: ROI real para producto digital en 2026"
+excerpt: "Cuándo un design system se paga solo, cuándo es overkill y cómo construir uno que tu equipo realmente use."
+date: "2026-04-13"
+author: "Equipo Tuataras"
+category: "UX / UI"
+coverImage: "/illustrations/design.svg"
+readTime: 6
+---
+
+Un design system bien implementado reduce tiempo de desarrollo 30–50% y mejora consistencia de producto. Mal implementado, es un repositorio bonito que nadie usa. La diferencia está en cómo se concibe desde el día 1.
+
+## Qué es un design system (y qué no es)
+
+**Es**: un sistema vivo de componentes, tokens, patrones y guías que tu equipo usa para construir producto consistente más rápido.
+
+**No es**: una librería de Figma con bonitos botones que el dev nunca importa.
+
+## Cuándo SÍ tiene sentido
+
+- Tienes **2+ productos** o secciones que comparten visual.
+- Tu equipo crece y el onboarding visual cuesta semanas.
+- Hay **inconsistencias visibles** entre pantallas (5 botones azules distintos).
+- Tu producto necesita **escalar features** sin reinventar la rueda cada sprint.
+
+## Cuándo NO
+
+- Tienes 1 producto chico y un equipo de 3 personas.
+- Estás en validación de MVP — todavía no sabés qué necesita repetirse.
+- Tu cliente principal cambia visualmente cada cierre de trato.
+
+## Los 3 niveles de madurez
+
+### Nivel 1: Tokens
+Variables de color, spacing, tipografía. Sincronizadas entre Figma y código. **Esto solo ya da el 40% del valor.**
+
+### Nivel 2: Componentes
+Botones, inputs, cards, modales. Documentados, accesibles, testeados. Una sola fuente de verdad.
+
+### Nivel 3: Patrones y guías
+Cómo combinarse, cuándo usar qué, ejemplos de uso correcto e incorrecto. Lo que hace que un junior diseñe como un senior.
+
+## Stack recomendado 2026
+
+- **Figma** + Variables + Tokens Studio para diseño.
+- **Storybook** + tests visuales (Chromatic) para componentes.
+- **Tailwind + shadcn/ui** o **Radix UI** como base si no querés construir desde cero.
+- **Style Dictionary** o **Tokens Studio** para sincronizar tokens entre Figma y código.
+
+## Errores comunes
+
+- Construirlo perfecto antes de usarlo — nunca se termina.
+- No tener un dueño claro — se desactualiza solo.
+- Documentar de menos — los componentes se duplican.
+- Hacerlo top-down sin involucrar a quienes van a usarlo.
+
+## El ROI medido
+
+Cliente SaaS con 4 productos. Pre design system: 12 semanas para feature mediana en cada producto. Post: 4–6 semanas con consistencia perfecta.
+
+**Inversión inicial**: ~$40k. **Ahorro anual estimado**: $200k+ en tiempo de desarrollo y QA.
+
+## Conclusión
+
+Un design system es infraestructura, no decoración. Bien hecho, acelera todo lo que viene después. ¿Necesitás auditar el tuyo o construir uno nuevo? [Conversemos](/es/contacto).

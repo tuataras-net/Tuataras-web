@@ -1,0 +1,68 @@
+---
+title: "Microservicios vs monolito: cuándo cada uno es la respuesta correcta"
+excerpt: "El debate eterno aterrizado a 2026: cuándo conviene un monolito modular, cuándo microservicios y cómo evitar las trampas comunes."
+date: "2026-04-12"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/devops.svg"
+readTime: 8
+---
+
+"Microservicios" fue durante años el sinónimo de "arquitectura moderna". En 2026, el péndulo está volviendo al centro. Equipos serios — desde Amazon Prime Video hasta Shopify — están publicando cómo *consolidaron* microservicios en monolitos. ¿Qué pasó? Veámoslo.
+
+## La promesa original de los microservicios
+
+- Despliegues independientes por equipo.
+- Escalar lo que necesita escalar.
+- Aislamiento de fallas.
+- Stack tecnológico flexible por servicio.
+
+Todo cierto — **si tienes el tamaño y la madurez para sostenerlo**.
+
+## El costo escondido
+
+- **Complejidad operacional**: ahora necesitas service mesh, observabilidad distribuida, gestión de secretos, canary deploys multiservicio.
+- **Latencia de red**: cada llamada interna es ahora un round-trip por TCP. Lo que era O(1) en memoria, ahora es O(n) en red.
+- **Dificultad para depurar**: una request atraviesa 14 servicios; encontrar el culpable de un 500 puede llevar horas.
+- **Costo de infraestructura**: 30 servicios = 30 imágenes, 30 pipelines, 30 dashboards.
+
+## Cuándo elegir monolito (modular)
+
+- Tu equipo tiene &lt;30 developers.
+- Tu producto está en validación o crecimiento temprano.
+- Tu carga de tráfico es manejable con escalado vertical/horizontal del proceso.
+- No tienes equipos con dominios completamente distintos.
+
+**Truco**: monolito *modular* — un solo despliegue, pero con módulos bien delimitados internamente. Es lo que llamamos "modular monolith" y es probablemente la arquitectura más rentable de 2026 para producto en crecimiento.
+
+## Cuándo elegir microservicios
+
+- Tienes >50 developers organizados en equipos por dominio.
+- Distintas partes del sistema escalan a velocidades muy distintas.
+- Tienes requisitos legales/compliance que exigen aislamiento de datos.
+- Ya alcanzaste el límite del monolito y los release trains se están volviendo dolorosos.
+
+## El patrón híbrido ganador
+
+Empieza monolito modular. Cuando un módulo crezca lo suficiente o necesite escalar de forma distinta, **extráelo** como servicio. Esto se llama "Strangler Fig" y es probablemente el camino más sano para crecer.
+
+## Métricas DORA que importan
+
+| Métrica | Elite | Alto | Medio |
+|---|---|---|---|
+| Deployment frequency | Diario+ | Semanal | Mensual |
+| Lead time for changes | &lt;1h | &lt;1 día | &lt;1 semana |
+| Change failure rate | 0–15% | 16–30% | 31–45% |
+| MTTR | &lt;1h | &lt;1 día | &lt;1 semana |
+
+Tu arquitectura está bien si te mueves hacia "elite" — sin importar si es monolito o microservicios.
+
+## Anti-patrones comunes
+
+- **"Microservicios distribuidos"**: 14 servicios que comparten la misma BD. No son micro, son problemas distribuidos.
+- **"Monolito accidental"**: empezaste sin diseño y ahora todo depende de todo. Refactor primero, no migres a micro.
+- **"Resume-driven architecture"**: elegir tecnología para enriquecer el CV. Cuesta caro al negocio.
+
+## Conclusión
+
+La pregunta correcta no es "¿micro o mono?" — es "¿qué problema estoy resolviendo?". Empieza simple, mide, y separa cuando el dolor sea real, no hipotético. ¿Quieres una segunda opinión sobre tu arquitectura? [Conversemos](/es/contacto).

@@ -1,0 +1,92 @@
+---
+title: "RAG: your AI talking to your internal data (without hallucinating)"
+excerpt: "What Retrieval Augmented Generation is, what it's for, how to implement it, and common mistakes."
+date: "2026-03-05"
+author: "Tuataras Team"
+category: "Applied AI"
+coverImage: "/illustrations/saas.svg"
+readTime: 6
+---
+
+ChatGPT doesn't know your company. For an LLM to answer using your data — policies, manuals, cases, contracts — you need **RAG** (Retrieval Augmented Generation). It's the key pattern bringing generative AI into enterprise production.
+
+## How RAG works in 1 minute
+
+1. Take your documents (PDFs, wikis, tickets, manuals).
+2. Split into chunks and convert to **embeddings** (numeric vectors).
+3. Store in a **vector database**.
+4. When user asks, find most semantically similar chunks.
+5. Pass those chunks to the LLM as context + the question.
+6. LLM responds **based on your data**, not its training.
+
+Result: precise, citable, hallucination-free answers.
+
+## Real use cases
+
+- **Internal support**: "What's the LATAM travel policy?"
+- **Customer support**: "Does my plan include Excel export?"
+- **Sales**: "Summarize last 3 months of interactions with client X"
+- **Compliance**: "What documents are needed for vendor onboarding in LATAM?"
+- **Onboarding**: "Explain how billing works in our system"
+
+## 2026 stack
+
+### Vector databases
+- **Pinecone**: hosted, easy, good to start.
+- **Weaviate / Qdrant**: open source, self-hosted or cloud.
+- **pgvector**: if you already use Postgres, simplest.
+
+### Embeddings
+- **OpenAI text-embedding-3**: balanced price/quality.
+- **Cohere Embed v3**: strong multilingual.
+- **Open source**: BGE, GTE for sensitive on-prem cases.
+
+### Frameworks
+- **LangChain / LlamaIndex**: fast orchestration.
+- **Custom**: for full control.
+
+### LLMs
+- **Claude / GPT / Gemini** via API.
+- **Open source** (Llama, Mistral) for very sensitive data.
+
+## Decisions that matter
+
+### Chunk size
+- Too small (200 chars): fragmented context, poor answers.
+- Too big (4000 chars): diluted relevance, high cost.
+- **Sweet spot**: 500–1500 chars with 100–200 overlap.
+
+### Top-k retrieval
+- Few (k=2): may miss needed info.
+- Many (k=10+): noise, expensive tokens.
+- **Sweet spot**: k=3–5 with re-ranking.
+
+### Re-ranking
+After initial search, a model re-orders by real relevance (Cohere Rerank, BGE Reranker). Significantly improves quality.
+
+### Hybrid search
+Combine semantic (vectors) + lexical (BM25). Catches cases where exact word matters (codes, IDs).
+
+## Quality-killing mistakes
+
+- **Bad structuring**: scraping PDFs without cleaning headers/footers/numbering.
+- **No metadata**: not leveraging tags, dates, author for filtering.
+- **Stale embeddings**: docs change, embeddings don't regenerate.
+- **No observability**: not measuring response quality, can't improve.
+- **Not showing sources**: user can't verify.
+
+## The reliable response pattern
+
+A good RAG response has:
+1. **Clear, concise answer**.
+2. **Cited sources** (with link to original doc).
+3. **Disclaimer if confidence is low**: "couldn't find exact info, this is closest".
+4. **Drill-down option**: "want me to search more?".
+
+## Real case
+
+Professional services company with 8000 internal documents (policies, cases, manuals). Pre-RAG: employees lose 5h/week searching info. Post-RAG: instant cited answers, ~200 hours/week savings estimate at a 50-person company.
+
+## Conclusion
+
+RAG is the pattern bringing generative AI from demo to product. Done well, transforms how your company accesses its own knowledge. Want to design yours? [Let's talk](/en/contact).

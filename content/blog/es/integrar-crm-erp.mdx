@@ -1,0 +1,105 @@
+---
+title: "Integrar tu CRM con tu ERP sin morir en el intento"
+excerpt: "Patrones probados para conectar CRM y ERP, errores comunes y cómo elegir entre integración nativa, iPaaS o desarrollo a medida."
+date: "2026-02-27"
+author: "Equipo Tuataras"
+category: "Automatización"
+coverImage: "/illustrations/automation.svg"
+readTime: 7
+---
+
+Tu equipo comercial vive en el CRM. Tu equipo administrativo en el ERP. Si no hablan entre sí, copiar datos manualmente cuesta más que la integración. Te mostramos cómo se hace bien.
+
+## Las 4 opciones para integrar
+
+### 1. Conectores nativos
+HubSpot ↔ NetSuite, Salesforce ↔ SAP, Pipedrive ↔ QuickBooks. Si existe, suele ser la opción más rentable.
+**Costo**: $0–$500/mes adicional.
+
+### 2. iPaaS (integration platform as a service)
+Workato, Tray.io, Boomi, Mulesoft. Plataformas para construir integraciones complejas sin código.
+**Costo**: $1k–$15k/mes según volumen.
+
+### 3. No-code / low-code
+Make, n8n, Zapier para casos simples a medianos.
+**Costo**: $50–$500/mes.
+
+### 4. A medida
+Desarrollo dedicado vía APIs. Flexibilidad total, mantenimiento bajo cuenta tuya.
+**Costo**: $30k–$150k inicial + mantenimiento.
+
+## Cómo elegir
+
+| Tu situación | Opción recomendada |
+|---|---|
+| Sistemas mainstream + flujos estándar | Conector nativo |
+| Múltiples sistemas + lógica de transformación | iPaaS |
+| Pocos flujos, presupuesto chico | No-code |
+| Lógica única + alto volumen | A medida |
+
+## Los flujos que sí o sí integrar
+
+### Lead → Cliente
+- Se cierra deal en CRM → crea cuenta de cliente en ERP.
+- Datos: nombre, fiscal, contactos, condiciones.
+- **Sin esto**: re-tipeo manual, errores fiscales.
+
+### Cliente → Facturación
+- ERP genera factura → CRM la ve adjunta al deal.
+- Estado de pago vuelve al CRM.
+- **Sin esto**: comerciales no saben qué clientes pagaron.
+
+### Producto / catálogo
+- ERP fuente de verdad de productos, precios, stock.
+- CRM sincroniza para cotizaciones.
+- **Sin esto**: cotizaciones con precios viejos.
+
+### Forecast → Producción
+- Pipeline del CRM proyecta demanda.
+- ERP/MRP planifica compras y producción.
+
+## Las decisiones técnicas que importan
+
+### Source of truth por entidad
+Para cada dato (cliente, producto, cuenta contable), uno solo es fuente de verdad. El otro lo lee. Sin esto, divergencias garantizadas.
+
+### Sincronización: real-time vs batch
+- **Real-time** (webhooks, eventos): para datos críticos en operación (ej: stock).
+- **Batch** (cada N min/horas): para reportería y agregados.
+- Mezclá según criticidad — no todo necesita ser instantáneo.
+
+### Manejo de errores
+Toda integración falla eventualmente. Diseñá:
+- **Reintentos** con exponential backoff.
+- **Dead letter queue** para revisión manual.
+- **Alertas** cuando hay errores fuera de tolerancia.
+- **Idempotencia**: reprocesar el mismo evento no duplica.
+
+## Errores fatales
+
+- **Sincronizar todo**: cuanto más datos, más cosas que romper. Empezá por lo crítico.
+- **Sin map de campos** documentado: nadie sabe por qué "país" en uno es "país_iso2" en el otro.
+- **Sin observabilidad**: no sabés qué corre, cuándo, qué falla.
+- **Acoplamiento fuerte**: un cambio en uno rompe el otro.
+
+## El plan de implementación
+
+**Mes 1**: discovery. Mapeo de datos y flujos críticos. Definición de source of truth.
+
+**Mes 2**: integración del flujo más crítico. Tests con datos de staging. Go-live limitado.
+
+**Mes 3**: expansión a flujos siguientes. Monitoreo, ajustes.
+
+**Mes 4+**: operación, mejora continua.
+
+## Caso real
+
+Empresa de distribución con HubSpot + SAP B1, conectados con Excel. 2 personas dedicadas full-time a copiar datos. Errores fiscales mensuales.
+
+Post-integración (iPaaS, 3 meses): 0 horas humanas en sincronización, errores prácticamente eliminados, comerciales tienen visibilidad de pago en tiempo real.
+
+**ROI**: payback en 7 meses, ahorro anual estimado $80k.
+
+## Conclusión
+
+Integrar CRM con ERP es de los proyectos de más alto ROI cuando se hace con disciplina. ¿Te ayudamos a evaluar el tuyo? [Conversemos](/es/contacto).

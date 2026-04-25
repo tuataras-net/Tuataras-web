@@ -1,0 +1,68 @@
+---
+title: "Microservices vs monolith: when each one is the right answer"
+excerpt: "The eternal debate landed in 2026: when a modular monolith wins, when microservices pay off, and how to dodge the common traps."
+date: "2026-04-12"
+author: "Tuataras Team"
+category: "DevOps"
+coverImage: "/illustrations/devops.svg"
+readTime: 8
+---
+
+For years "microservices" was a synonym for "modern architecture". In 2026, the pendulum is swinging back. Serious teams — from Amazon Prime Video to Shopify — are publishing how they *consolidated* microservices back into monoliths. What happened? Let's unpack it.
+
+## The original promise
+
+- Independent deploys per team.
+- Scale only what needs to scale.
+- Fault isolation.
+- Tech-stack flexibility per service.
+
+All true — **if you have the size and maturity to sustain it**.
+
+## The hidden cost
+
+- **Operational complexity**: now you need service mesh, distributed tracing, secret management, multi-service canary deploys.
+- **Network latency**: every internal call is now a TCP round-trip. What was O(1) in memory is O(n) over the wire.
+- **Hard to debug**: a request crosses 14 services; finding the source of a 500 can take hours.
+- **Infra cost**: 30 services = 30 images, 30 pipelines, 30 dashboards.
+
+## When to pick a (modular) monolith
+
+- Team has &lt;30 developers.
+- Product is in validation or early growth.
+- Traffic is manageable with vertical/horizontal process scaling.
+- You don't have teams owning radically different domains.
+
+**Trick**: *modular monolith* — single deployable, but with well-defined internal modules. Probably the most cost-effective architecture in 2026 for growing products.
+
+## When microservices win
+
+- 50+ developers organized by domain.
+- Different parts of the system scale at very different rates.
+- Compliance/legal needs requiring data isolation.
+- You hit the monolith ceiling and release trains are painful.
+
+## The winning hybrid pattern
+
+Start as modular monolith. When a module grows enough or needs different scaling, **extract** it as a service. This is the Strangler Fig pattern, and it's the healthiest growth path.
+
+## DORA metrics that matter
+
+| Metric | Elite | High | Medium |
+|---|---|---|---|
+| Deployment frequency | Daily+ | Weekly | Monthly |
+| Lead time for changes | &lt;1h | &lt;1 day | &lt;1 week |
+| Change failure rate | 0–15% | 16–30% | 31–45% |
+| MTTR | &lt;1h | &lt;1 day | &lt;1 week |
+
+Your architecture is fine if you trend toward "elite" — regardless of mono or micro.
+
+## Common anti-patterns
+
+- **"Distributed monoliths"**: 14 services sharing one database. Not micro — distributed problems.
+- **"Accidental monolith"**: started without design, now everything depends on everything. Refactor first, don't migrate to micro.
+- **"Resume-driven architecture"**: choosing tech to pad CVs. Costs the business dearly.
+
+## Conclusion
+
+The right question isn't "micro or mono?" — it's "what problem am I solving?". Start simple, measure, and split when the pain is real, not hypothetical. Want a second opinion on your architecture? [Let's talk](/en/contact).

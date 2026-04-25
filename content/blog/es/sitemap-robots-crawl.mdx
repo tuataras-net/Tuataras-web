@@ -1,0 +1,126 @@
+---
+title: "Sitemap, robots.txt y crawl budget: lo que pocos sitios hacen bien"
+excerpt: "Cómo Google crawlea tu sitio, qué controla el robots.txt vs el sitemap, y cómo optimizar crawl budget para sitios grandes."
+date: "2026-02-09"
+author: "Equipo Tuataras"
+category: "SEO"
+coverImage: "/illustrations/quality-code.svg"
+readTime: 6
+---
+
+El 60% de los sitios tiene errores en `robots.txt` o `sitemap.xml`. La mayoría no se entera porque no destruye SEO de un día para otro — solo lo arrastra silenciosamente. Te mostramos qué revisar y arreglar.
+
+## Qué hace cada uno
+
+### robots.txt
+Le dice a los crawlers **qué NO crawlear**. Vive en `tudominio.com/robots.txt`.
+
+### sitemap.xml
+Le dice a Google **qué SÍ querés que considere**. Lista de URLs importantes con metadata.
+
+**No son intercambiables**: robots.txt no garantiza no indexación (solo no crawling). Para no indexar, usás `noindex` en HTML o headers.
+
+## La estructura mínima de robots.txt
+
+```
+User-agent: *
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /*?session=
+
+Sitemap: https://tudominio.com/sitemap.xml
+```
+
+**Reglas**:
+- Empezá permisivo, bloqueá solo lo que tiene sentido.
+- Bloquear `?session` y similares evita duplicate content.
+- Listá tu sitemap explícitamente.
+
+## Errores típicos
+
+### 1. Bloquear lo que sí querés indexar
+`Disallow: /` accidental destruye SEO completo. Pasa más de lo que crees al pasar de staging a prod.
+
+### 2. Asumir que `Disallow` esconde
+No. Si Google encontró la URL por enlace externo, puede indexarla aunque no la crawlee. Para esconder: `noindex` + sin enlaces internos a esa URL.
+
+### 3. Robots.txt distinto entre staging y prod
+Subís staging robots a prod por accidente. Ojo en deploy.
+
+### 4. Sin testear en Search Console
+Hay un tester de robots.txt en GSC. Usalo antes de deployar.
+
+## Sitemap.xml hecho bien
+
+### Tamaño
+Máximo **50,000 URLs o 50MB** por sitemap. Más grande → split en varios + sitemap index.
+
+### Frescura
+Generado dinámicamente con cada cambio, no estático que se desactualiza.
+
+### Solo URLs canónicas
+No incluir variantes con parámetros, redirecciones, ni 404s.
+
+### Por tipo
+Sitemaps separados por tipo (productos, posts, páginas estáticas) facilitan diagnóstico en Search Console.
+
+### Ejemplo bien estructurado
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tudominio.com/blog/post-1</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+```
+
+`changefreq` y `priority` son hints débiles — Google los considera poco. **Lo importante**: `loc` y `lastmod`.
+
+## Crawl budget: qué es y cuándo importa
+
+**Crawl budget** = cuántas URLs Google está dispuesto a crawlear en tu sitio en un período.
+
+### Cuándo importa
+- **Sitios grandes** (50k+ URLs).
+- **Sitios con mucho contenido nuevo** que necesita indexarse rápido.
+- **E-commerces** con muchas variantes/filtros.
+
+### Cuándo NO importa
+- Sitios &lt;1000 páginas. Google los crawlea todo sin problema.
+
+### Cómo optimizarlo
+
+1. **Bloquear lo no relevante** (filtros con muchas combinaciones, tags vacíos, archive pages duplicados).
+2. **Canonical correcto** para que Google entienda qué versión preferís.
+3. **Internal linking inteligente**: importantes reciben más enlaces.
+4. **404s rápidos**: no respuestas 200 con "no encontrado".
+5. **Velocidad del servidor**: Google crawlea más si tu server responde rápido.
+
+## Diagnóstico con Search Console
+
+Sección **Crawl Stats**: te dice cuántas URLs se crawlearon, tiempo promedio de respuesta, qué tipos de archivos.
+
+Sección **Pages**: páginas indexadas vs no indexadas, con motivo. Si "Discovered - currently not indexed" es alto, hay problema de calidad o crawl budget.
+
+## Caso real
+
+E-commerce con 80k URLs, 95% productos. Solo 22k indexadas. Análisis:
+
+- 30k URLs eran filtros combinados sin valor.
+- 8k eran 404s no detectados.
+- Sitemap incluía URLs con parámetros tracking.
+
+Acciones:
+- Bloquear filtros en robots.txt.
+- Eliminar 404s o redireccionar a categoría.
+- Sitemap solo con URLs canónicas limpias.
+
+**Resultado a 60 días**: indexación subió a 65k, tráfico orgánico +52%, crawl rate más eficiente.
+
+## Conclusión
+
+Sitemap, robots.txt y crawl budget son fundamentos invisibles pero críticos. Mal configurados, frenan tu SEO sin que te enteres. Bien configurados, son los rieles sobre los que el contenido viaja. ¿Auditamos los tuyos? [Conversemos](/es/contacto).

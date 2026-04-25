@@ -1,0 +1,61 @@
+---
+title: "Accesibilidad web (WCAG 2.2): por qué es prioridad legal y comercial en 2026"
+excerpt: "WCAG 2.2 ya no es opcional: regulación, demandas y oportunidad de mercado. Guía práctica para auditar y arreglar tu sitio."
+date: "2026-04-04"
+author: "Equipo Tuataras"
+category: "UX / UI"
+coverImage: "/illustrations/ux-ui.svg"
+readTime: 7
+---
+
+En 2026, accesibilidad dejó de ser "buena práctica" para convertirse en obligación legal en la UE, EE.UU. y crecientemente en Latam. Y el mercado al que abre — 1.300 millones de personas con alguna discapacidad — hace que el ROI sea evidente.
+
+## El marco regulatorio que ya entró en vigor
+
+- **European Accessibility Act**: obligatorio desde junio 2025 para e-commerce, banca, transporte, software de consumo.
+- **ADA (EE.UU.)**: el DOJ confirmó WCAG 2.1 AA como estándar mínimo para sitios públicos. Demandas crecieron 320% desde 2020.
+- **Latam**: México, Argentina y Chile tienen leyes específicas que referencian WCAG.
+
+## WCAG 2.2: lo nuevo que importa
+
+Sumó 9 criterios nuevos respecto a 2.1. Los más relevantes:
+
+- **Focus apparente** (2.4.11): el indicador de foco debe ser claramente visible al navegar con teclado.
+- **Targets de tamaño mínimo** (2.5.8): botones y links táctiles deben medir al menos 24x24px.
+- **Drag movements** (2.5.7): toda acción que requiere arrastrar debe tener alternativa con un solo punto.
+- **Autenticación accesible** (3.3.8): no exigir resolver captchas cognitivos como única opción.
+
+## Los 4 errores que rompen el 80% de los sitios
+
+1. **Contraste insuficiente** en texto secundario, placeholders y enlaces. Mínimo: 4.5:1 para texto normal, 3:1 para grande.
+2. **Imágenes sin alt** o con alt genérico ("imagen1.jpg"). Lectores de pantalla quedan ciegos.
+3. **Formularios sin etiquetas** asociadas correctamente al input. El navegador asistivo no sabe qué pedir.
+4. **Sitios que no funcionan con teclado**: navegar con Tab debe abarcar todo, en orden lógico, con foco visible.
+
+## El plan de remediación pragmático
+
+### Semana 1: Auditoría
+- **Herramientas automáticas**: axe DevTools, Lighthouse, WAVE. Detectan ~30% de los problemas.
+- **Pruebas manuales**: navegación con teclado, lector de pantalla (VoiceOver, NVDA), zoom 200%.
+- **Documenta findings** clasificando por severidad (bloqueante, alto, medio).
+
+### Semanas 2–4: Arreglos críticos
+Atacar lo bloqueante primero: contraste, alt en imágenes clave, formularios y navegación con teclado. Esto suele cubrir el 70% del riesgo legal.
+
+### Mes 2: Arreglos de fondo
+Refactor de componentes para usar HTML semántico correcto. Reemplazar `<div onclick>` por `<button>`. Implementar ARIA solo donde el HTML nativo no alcanza.
+
+### Mes 3+: Cultura
+- Tests de accesibilidad automatizados en el CI (axe-core).
+- Linters que bloquean merges con violaciones AA.
+- Capacitación de diseño y desarrollo.
+
+## El argumento comercial (no legal)
+
+- Accesible = SEO mejor (HTML semántico, alt, estructura).
+- Accesible = mejor UX para todos (subtítulos benefician a todos en lugares ruidosos).
+- Accesible = mercado adicional. ~15% de la población tiene alguna discapacidad. ¿Vas a dejar fuera a 1 de cada 7 clientes?
+
+## Conclusión
+
+WCAG 2.2 no es checklist — es disciplina. Bien implementada, mejora SEO, conversión y reduce riesgo legal simultáneamente. ¿Necesitas auditoría de accesibilidad? [Conversemos](/es/contacto).

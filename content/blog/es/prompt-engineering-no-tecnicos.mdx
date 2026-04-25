@@ -1,0 +1,82 @@
+---
+title: "Prompt engineering para no técnicos: cómo obtener mejor de Claude, GPT y Gemini"
+excerpt: "Patrones probados de prompting que cualquier profesional puede aplicar para multiplicar la utilidad de la IA generativa."
+date: "2026-03-03"
+author: "Equipo Tuataras"
+category: "IA Aplicada"
+coverImage: "/illustrations/elearning.svg"
+readTime: 6
+---
+
+La diferencia entre alguien que saca poco valor de ChatGPT y alguien que multiplica su productividad rara vez es técnica — es saber **cómo pedir**. Te enseñamos los patrones que sí funcionan.
+
+## El framework R-T-F
+
+Probablemente el más útil de todos:
+
+- **R**ole: dale un rol al modelo.
+- **T**ask: definí la tarea con precisión.
+- **F**ormat: especificá el formato de salida.
+
+**Mal**: "Hacé un email para mi cliente."
+
+**Bien**: "Sos un account manager experto en SaaS B2B. Escribí un email para un cliente que canceló la renovación, intentando reactivar la conversación. Tono cálido, profesional. 80–120 palabras. Cierro con una pregunta abierta."
+
+## Los 7 patrones que multiplican calidad
+
+### 1. Dale contexto suficiente
+La IA no sabe lo que vos sabés. Pasale los datos relevantes (cliente, producto, situación) en el prompt.
+
+### 2. Pedí ejemplos del output deseado
+"Quiero que escribas como en este ejemplo: [X]". Few-shot prompting da resultados mucho mejores.
+
+### 3. Pediile que piense paso a paso
+"Antes de responder, identificá las 3 consideraciones más importantes." Hace al modelo razonar mejor.
+
+### 4. Limitá el alcance
+"No incluyas X. Solo enfocate en Y." Reduce divagación.
+
+### 5. Iterá, no aceptes el primer output
+La primera respuesta rara vez es la mejor. Pedí mejoras: "más concreto", "menos formal", "agregá un ejemplo".
+
+### 6. Pedí múltiples opciones
+"Dame 3 versiones distintas." Comparás y elegís — o pedís fusión.
+
+### 7. Definí qué NO hacer
+"No uses jerga corporativa. No uses 'sinérgico' ni 'value-add'." Las exclusiones funcionan.
+
+## Plantillas para casos comunes
+
+### Email comercial
+> Sos un [rol]. Escribí un email a [tipo de contacto] sobre [tema]. Objetivo: [acción que quiero que tome]. Tono: [adjetivos]. Largo: [cantidad palabras]. Incluí: [elementos]. Evitá: [cosas].
+
+### Análisis de un documento
+> Te paso un documento. 1) Resumilo en 5 puntos clave. 2) Identificá los 3 riesgos principales. 3) Sugerí 3 preguntas para clarificar con el autor.
+
+### Brainstorming
+> Necesito 15 ideas para [problema]. Quiero variedad: 5 conservadoras, 5 ambiciosas, 5 disruptivas. Para cada una: 1 frase de descripción + principal riesgo.
+
+### Aprender un tema
+> Explicame [tema] como si tuviera 12 años. Después agregá 3 conceptos más avanzados que un profesional debería saber. Cerrá con 5 preguntas para autoevaluación.
+
+## Los errores más comunes
+
+- **Prompt vago**: "ayudame con marketing".
+- **Sin contexto**: el modelo asume genérico.
+- **Aceptar primera respuesta**: es la peor versión.
+- **No pedir formato**: recibís párrafos cuando querías tabla.
+- **Tono incorrecto**: no especificás registro y obtenés algo neutro/aburrido.
+
+## El secreto de los heavy users
+
+Mantienen una librería personal de prompts que funcionan, organizados por uso. Cuando aparece tarea similar, reutilizan + adaptan. La productividad compounds.
+
+## Errores con datos sensibles
+
+- **Nunca pegar info confidencial** en versiones gratuitas o de consumidor.
+- Para datos sensibles: cuentas Enterprise (Claude Team, ChatGPT Enterprise) con DPA.
+- Mejor aún: modelos privados/on-prem para casos críticos.
+
+## Conclusión
+
+Prompt engineering no es técnica oscura — es comunicación clara con un asistente nuevo en el equipo. Bien aplicado, multiplica tu productividad sin tocar código. ¿Querés capacitar a tu equipo en uso de IA? [Conversemos](/es/contacto).

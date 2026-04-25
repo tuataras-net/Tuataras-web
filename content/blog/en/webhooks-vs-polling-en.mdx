@@ -1,0 +1,92 @@
+---
+title: "Webhooks vs polling: which to use and why it matters"
+excerpt: "Differences between webhooks and polling, when to use each, and how to avoid expensive integration mistakes."
+date: "2026-02-21"
+author: "Tuataras Team"
+category: "Automation"
+coverImage: "/illustrations/cicd.svg"
+readTime: 5
+---
+
+Building integrations? You'll face this decision: **webhooks or polling**. Wrong choice means slowness, high cost or fragile systems. Here's how to decide.
+
+## The 30-second difference
+
+- **Polling**: your system asks every N time "any news?". Like checking the mailbox every hour.
+- **Webhooks**: the other system tells you when there's news. Like getting a message when mail arrives.
+
+## When to use webhooks
+
+- **Important and relatively rare events** (purchase, cancellation, payment).
+- **Need low latency** (response in seconds).
+- **Provider supports them** (Stripe, GitHub, Slack, etc).
+- **You have public endpoint accessible**.
+
+## When to use polling
+
+- **Provider doesn't support webhooks** (many legacy and banking).
+- **Need to verify consistency** periodically.
+- **States change internally** without explicit event.
+- **Can't have public endpoint** (client behind firewall).
+
+## Webhooks: what goes wrong
+
+### 1. Not idempotent
+Provider re-sends same event 3 times on timeout. If your handler processes 3 times, you duplicate charges, emails, etc.
+**Solution**: idempotency key or processed-events log.
+
+### 2. Unsigned
+Webhook without signature → anyone with your URL can send fake events.
+**Solution**: validate HMAC (Stripe, GitHub etc provide it).
+
+### 3. Slow endpoint
+Provider gives X seconds before timeout (Stripe: 30s). Heavy handler = timeout = re-send.
+**Solution**: handler responds 200 fast, queues processing.
+
+### 4. No retry handling
+Your system goes down = lost events. Most providers retry with limits.
+**Solution**: dead letter queue + alerts + manual reprocessing.
+
+## Polling: what goes wrong
+
+### 1. Wrong frequency
+Too high = costs and rate limits. Too low = data lag.
+**Solution**: balance by criticality (every 30s to 1h).
+
+### 2. No cursor / since
+Asking "everything since forever" each time = expensive and slow.
+**Solution**: timestamp or ID cursor, only fetch new.
+
+### 3. Inconsistent state
+External system changes and reverts between polls = you miss the change.
+**Solution**: for critical data, add webhook if available.
+
+### 4. Growing costs
+Each poll consumes API calls. At scale, adds up.
+
+## The hybrid pattern (recommended)
+
+For critical production cases:
+- **Webhook** as primary mechanism (low latency).
+- **Reconciliation polling** every N hours to detect lost events.
+- **Cross-validation** with provider periodically.
+
+Gives you: webhook speed + polling robustness.
+
+## Stack to implement well
+
+- **Queues**: SQS, RabbitMQ, Kafka, Redis Streams for async processing.
+- **Webhook receivers**: any HTTP framework. The logic matters.
+- **Specialized tools**: Hookdeck, Svix, ngrok (dev), webhooks.io.
+- **Observability**: log received events + processing state.
+
+## Mistakes I see often
+
+- Webhooks assuming arrival order (don't).
+- No versioning: provider changes format, all breaks.
+- Processing webhooks synchronously with heavy tasks.
+- Retry without backoff: hammering the provider when something fails.
+
+## Conclusion
+
+Webhooks vs polling isn't ideological — it's pragmatic. The best architecture often combines both. Want help designing your integration? [Let's talk](/en/contact).

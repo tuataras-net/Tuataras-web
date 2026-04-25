@@ -1,0 +1,110 @@
+---
+title: "Schema markup para sitios B2B: rich snippets que aumentan tu CTR"
+excerpt: "Datos estructurados para sitios B2B: cuáles aplicar, cómo implementarlos y el impacto real en tráfico orgánico."
+date: "2026-02-13"
+author: "Equipo Tuataras"
+category: "SEO"
+coverImage: "/illustrations/business-apps.svg"
+readTime: 5
+---
+
+**Schema markup** es código invisible al usuario pero crucial para Google: le decís explícitamente qué tipo de contenido es cada página. El resultado: **rich snippets** que aumentan CTR un 20–40% sin cambiar tu posición.
+
+## Qué son los datos estructurados
+
+Markup estandarizado (Schema.org) que se agrega a tu HTML — usualmente en JSON-LD — describiendo tipo, propiedades y relaciones del contenido. Google los usa para:
+
+- Mostrar rich snippets (estrellas, precios, FAQs).
+- Habilitar features especiales (knowledge panels, AI overviews).
+- Entender el contenido más profundamente para ranking.
+
+## Los schemas que un sitio B2B debe tener
+
+### 1. Organization
+Datos de tu empresa: nombre, logo, redes sociales, dirección. Aparece en Knowledge Panel de Google cuando alguien busca tu marca.
+
+### 2. WebSite + SearchAction
+Habilita la "search box" dentro de Google que busca en tu sitio.
+
+### 3. BreadcrumbList
+Migas de pan que aparecen en los resultados, mejorando CTR y comprensión de jerarquía.
+
+### 4. Article / BlogPosting
+Para todo el contenido editorial. Habilita "Top stories" y similar.
+
+### 5. FAQPage
+Para páginas con preguntas frecuentes. Las preguntas aparecen expandibles directamente en Google. CTR boost significativo.
+
+### 6. Product (si vendés productos online)
+Precio, disponibilidad, reviews. Imprescindible para e-commerce y SaaS.
+
+### 7. SoftwareApplication
+Si tu producto es software/SaaS. Ratings, precio, screenshots.
+
+### 8. Service
+Para páginas de servicios profesionales. Áreas servidas, tipo de servicio.
+
+### 9. Event
+Si organizás webinars, conferencias, capacitaciones.
+
+### 10. Review / AggregateRating
+Si tenés testimonios y reviews. Estrellas en search results.
+
+## Ejemplo: Schema de Article
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Título del artículo",
+  "author": {
+    "@type": "Organization",
+    "name": "Tu Empresa"
+  },
+  "datePublished": "2026-02-13",
+  "image": "https://tudominio.com/image.jpg"
+}
+```
+
+Va dentro de `<script type="application/ld+json">` en el `<head>`.
+
+## Cómo implementarlo bien
+
+### En sitios estáticos / Next.js
+Generación dinámica del JSON-LD por tipo de página. Component reusable que toma props.
+
+### En WordPress
+Plugins: Yoast SEO, Rank Math, Schema Pro. Configuración por tipo de contenido.
+
+### En e-commerce
+Shopify, WooCommerce ya generan productos schema. Validar y ampliar.
+
+## Cómo verificar que funciona
+
+1. **Google Rich Results Test**: pegás URL, te muestra qué schemas detecta y previsualización.
+2. **Schema Markup Validator** (Schema.org).
+3. **Search Console** → Enhancements: te muestra qué schemas Google detecta y si hay errores.
+
+## Errores comunes
+
+- **Schema falso**: marcar reviews que no existen, productos que no tenés. Google penaliza.
+- **Schema desactualizado**: precio en JSON-LD difiere del visible. Cambiar en ambos lados.
+- **Schema sin contenido visible**: Google quiere que el dato marcado esté visible al usuario.
+- **Múltiples schemas en conflicto**: usar uno claro por página.
+
+## El impacto medido
+
+Cliente B2B SaaS implementó:
+- Article + FAQPage en blog.
+- SoftwareApplication en producto.
+- Service en landing pages.
+- BreadcrumbList global.
+
+**Resultado a 90 días**:
+- CTR promedio en search: 3.2% → 4.8% (+50%).
+- Apariciones en AI Overview de Google: 0 → 12.
+- Tráfico orgánico: +34% sin cambiar posiciones.
+
+## Conclusión
+
+Schema markup es el secreto mejor guardado del SEO B2B en 2026. Bajo costo, alto impacto, casi nadie lo hace bien. ¿Te ayudamos a implementarlo? [Conversemos](/es/contacto).

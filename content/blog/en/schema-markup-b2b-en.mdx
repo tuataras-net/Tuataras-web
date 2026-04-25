@@ -1,0 +1,110 @@
+---
+title: "Schema markup for B2B sites: rich snippets that boost CTR"
+excerpt: "Structured data for B2B sites: which to apply, how to implement, and the real impact on organic traffic."
+date: "2026-02-13"
+author: "Tuataras Team"
+category: "SEO"
+coverImage: "/illustrations/business-apps.svg"
+readTime: 5
+---
+
+**Schema markup** is code invisible to users but crucial to Google: you explicitly tell it what kind of content each page is. Result: **rich snippets** that boost CTR 20–40% without changing your position.
+
+## What structured data is
+
+Standardized markup (Schema.org) added to your HTML — usually in JSON-LD — describing type, properties and relationships. Google uses it to:
+
+- Show rich snippets (stars, prices, FAQs).
+- Enable special features (knowledge panels, AI overviews).
+- Understand content more deeply for ranking.
+
+## Schemas a B2B site must have
+
+### 1. Organization
+Your company data: name, logo, social, address. Appears in Google's Knowledge Panel when searching your brand.
+
+### 2. WebSite + SearchAction
+Enables in-Google "search box" that searches your site.
+
+### 3. BreadcrumbList
+Breadcrumbs in results, improving CTR and hierarchy comprehension.
+
+### 4. Article / BlogPosting
+For all editorial content. Enables "Top stories" and similar.
+
+### 5. FAQPage
+For FAQ pages. Questions appear expandable directly in Google. Significant CTR boost.
+
+### 6. Product (if selling online)
+Price, availability, reviews. Essential for e-commerce and SaaS.
+
+### 7. SoftwareApplication
+If your product is software/SaaS. Ratings, price, screenshots.
+
+### 8. Service
+For professional services pages. Areas served, service type.
+
+### 9. Event
+If you organize webinars, conferences, training.
+
+### 10. Review / AggregateRating
+If you have testimonials and reviews. Stars in search results.
+
+## Example: Article schema
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Article title",
+  "author": {
+    "@type": "Organization",
+    "name": "Your Company"
+  },
+  "datePublished": "2026-02-13",
+  "image": "https://yourdomain.com/image.jpg"
+}
+```
+
+Goes inside `<script type="application/ld+json">` in the `<head>`.
+
+## How to implement well
+
+### In static / Next.js sites
+Dynamic JSON-LD generation per page type. Reusable component taking props.
+
+### In WordPress
+Plugins: Yoast SEO, Rank Math, Schema Pro. Configuration per content type.
+
+### In e-commerce
+Shopify, WooCommerce already generate product schema. Validate and extend.
+
+## How to verify it works
+
+1. **Google Rich Results Test**: paste URL, see detected schemas and preview.
+2. **Schema Markup Validator** (Schema.org).
+3. **Search Console** → Enhancements: shows detected schemas and errors.
+
+## Common mistakes
+
+- **Fake schema**: marking nonexistent reviews, products you don't have. Google penalizes.
+- **Outdated schema**: JSON-LD price differs from visible. Keep both in sync.
+- **Schema without visible content**: Google wants marked data visible to users.
+- **Multiple conflicting schemas**: use one clear per page.
+
+## Measured impact
+
+B2B SaaS client implemented:
+- Article + FAQPage in blog.
+- SoftwareApplication in product.
+- Service in landing pages.
+- Global BreadcrumbList.
+
+**Result in 90 days**:
+- Avg search CTR: 3.2% → 4.8% (+50%).
+- Google AI Overview appearances: 0 → 12.
+- Organic traffic: +34% without changing positions.
+
+## Conclusion
+
+Schema markup is B2B SEO's best-kept secret in 2026. Low cost, high impact, almost nobody does it well. Want help implementing? [Let's talk](/en/contact).

@@ -1,0 +1,95 @@
+---
+title: "Automating customer support with AI: the 2026 playbook"
+excerpt: "How to apply AI in customer support without losing quality or empathy. Cases, metrics and recommended architecture."
+date: "2026-03-07"
+author: "Tuataras Team"
+category: "Applied AI"
+coverImage: "/illustrations/support.svg"
+readTime: 6
+---
+
+AI is rewriting how customer support is done. Done well, it multiplies capacity without sacrificing empathy. Done poorly, it frustrates your best customers. Let's see how to tell the difference.
+
+## The 4 automation layers
+
+### Layer 1: Improved self-service
+Semantic search over your knowledge base. User asks in natural language, gets relevant answers — before needing a human.
+
+**Impact**: -25 to -40% tickets opened.
+
+### Layer 2: Agent assistant
+AI doesn't reply to customer, helps the human. Suggests responses, finds similar cases, translates, summarizes long threads.
+
+**Impact**: avg response time -50%, new agents productive in weeks not months.
+
+### Layer 3: Autonomous resolution of simple tickets
+For well-defined categories (password resets, returns under policy, order status), AI fully resolves and closes.
+
+**Impact**: 30–50% tickets closed without human, CSAT same or better.
+
+### Layer 4: Proactive detection
+AI analyzes patterns — query spikes, negative social sentiment, recurring errors — and warns the team before escalation.
+
+**Impact**: prevention > reaction.
+
+## Recommended architecture
+
+```
+Customer
+   ↓
+[Frontend: chat / email / WhatsApp]
+   ↓
+[AI Router: classifies intent and urgency]
+   ↓
+   ├─ Self-service (RAG over KB)
+   ├─ Auto-resolution (simple tickets)
+   └─ Human (with context + AI suggestions)
+   ↓
+[Ticket / CRM system]
+   ↓
+[Analytics: CSAT, NPS, ops metrics]
+```
+
+## 2026 stack
+
+- **Core LLM**: Claude / GPT / Gemini API.
+- **Vector DB**: Pinecone, pgvector, Weaviate (for RAG).
+- **Ticket platform**: Intercom (Fin), Zendesk (AI), Freshdesk Freddy.
+- **Orchestration**: LangChain, custom or platform-native.
+- **AI observability**: Langfuse, Helicone to monitor quality.
+
+## What AI must NOT do
+
+- **Make decisions affecting money or legal without human**.
+- **Speak as human without disclaimer**.
+- **Handle strong emotional complaints** without escalating.
+- **Lie when it doesn't know**: "not sure, connecting you to someone".
+
+## Metrics to compare
+
+| Metric | Pre-AI | Post-AI done well |
+|---|---|---|
+| First Response Time | 2–8h | &lt;1min for auto-resolved |
+| Resolution Time | 24–72h | -40% avg |
+| CSAT | Baseline | Same or +5% |
+| Tickets/agent | Baseline | +60–120% capacity |
+| Cost per ticket | Baseline | -35–55% |
+
+## Quality-destroying mistakes
+
+- AI answering without ground truth: hallucinates, damages trust.
+- No visible option to talk to human.
+- Metrics only of efficiency, not satisfaction.
+- Big-bang implementation instead of gradual by category.
+
+## How to implement (90 days)
+
+**Month 1**: discovery. Past ticket analysis, categorization, identifying low-hanging fruit.
+
+**Month 2**: pilot in 1–2 simple ticket categories. Auto-resolution with obvious escalation. A/B with control cohort.
+
+**Month 3**: measure, adjust prompts and guardrails. Expand to more categories. Train support team on new flow.
+
+## Conclusion
+
+Automating support with AI isn't replacing humans — it's freeing them from repetition so they focus on what truly requires empathy and judgment. Want help designing yours? [Let's talk](/en/contact).

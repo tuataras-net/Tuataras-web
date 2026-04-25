@@ -1,0 +1,97 @@
+---
+title: "Internationalization (i18n) done right: multilingual SEO without breaking rankings"
+excerpt: "Common pitfalls when internationalizing your site and how to do it adding traffic, not destroying ranking."
+date: "2026-02-11"
+author: "Tuataras Team"
+category: "SEO"
+coverImage: "/illustrations/web-dev.svg"
+readTime: 6
+---
+
+Bad internationalization can erase 6 months of SEO. Done right, opens entire markets with organic traffic already waiting. The difference is in technical decisions few solve correctly.
+
+## The 3 URL strategies
+
+### 1. Subdomains (es.mydomain.com)
+- **Pro**: clear separation, possible independent hosting.
+- **Con**: Google treats them as separate sites, must build authority for each.
+
+### 2. Subdirectories (mydomain.com/es/)
+- **Pro**: leverages root domain authority, simpler management.
+- **Con**: single hosting, less geo flexibility.
+- **Most recommended** for most cases.
+
+### 3. ccTLDs (mydomain.es, mydomain.mx)
+- **Pro**: strong geographic signal, local trust.
+- **Con**: each domain starts from zero in SEO, cost and ops.
+- **For companies** with priority markets in specific countries.
+
+## The hreflang tag (without it, all breaks)
+
+Tells Google "this page is the X language/country version of Y page".
+
+```html
+<link rel="alternate" hreflang="es" href="https://mydomain.com/es/" />
+<link rel="alternate" hreflang="en" href="https://mydomain.com/en/" />
+<link rel="alternate" hreflang="x-default" href="https://mydomain.com/" />
+```
+
+**Critical rules**:
+- **Bidirectional**: if A points to B, B must point to A.
+- **Self-referencing**: include itself.
+- **x-default**: for users whose language matches none.
+- **Correct codes**: ISO 639-1 (language) + ISO 3166-1 (country optional).
+
+## Multilingual SEO killers
+
+### 1. Translating only visible content
+- Forgetting: meta titles, descriptions, alt texts, schema.org, OG tags, URL slugs.
+
+### 2. Using Google Translate in production
+- Auto-translated content without human review is low-quality and Google detects.
+
+### 3. Same content in multiple URLs without canonicalization
+- es.mydomain.com and mydomain.com/es/ with same content = duplicate content.
+
+### 4. IP-based geo-redirect without option
+- Frustrates user and breaks Google crawling.
+- Better: detect language + offer change, don't force.
+
+### 5. Misconfigured hreflang
+- Most common mistake. Bad config invalidates everything.
+
+### 6. Unified sitemap without structure
+- Each language should have its sitemap referenced in sitemap index.
+
+## What to translate/adapt
+
+- **Full editorial content** (not auto-translated).
+- **URL slugs** in local language (`/blog/article` not `/blog/post`).
+- **Metadata**: titles, descriptions.
+- **Schema markup** localized.
+- **Images with text** or cultural references.
+- **Date, currency, number formats**.
+- **CTAs** per local custom.
+
+## What doesn't duplicate effort
+
+- **CSS, JS, technical infrastructure**: one.
+- **Images without text**: one, alt translated.
+- **UI components**: once with i18n.
+
+## 2026 stack for multilingual sites
+
+- **Next.js + next-intl** or **next-i18next**.
+- **Astro + Astro i18n**.
+- **Headless CMS** with native multi-locale (Sanity, Contentful, Storyblok).
+- **Linguana, Weglot, Localize**: overlay if you can't touch current site (worse SEO than native i18n, better than nothing).
+
+## Real case
+
+B2B site only in Spanish, target audience in LATAM + Spain. Bad English translation (Translate plugin, no hreflang) destroyed Spanish SEO via duplicates.
+
+Re-implementation with native i18n, correct hreflang, human translation, local slugs: total organic traffic +95% in 6 months, English traffic representing 38% of new.
+
+## Conclusion
+
+Done right, i18n is a huge organic growth lever. Done wrong, traffic destruction. Worth doing right from day 1. Need help? [Let's talk](/en/contact).

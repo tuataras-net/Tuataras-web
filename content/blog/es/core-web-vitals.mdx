@@ -1,0 +1,95 @@
+---
+title: "Core Web Vitals: por qué Google los penaliza y cómo arreglarlos"
+excerpt: "Qué son LCP, INP y CLS, por qué impactan tu SEO y conversión, y la guía paso a paso para llevarlos a verde."
+date: "2026-02-15"
+author: "Equipo Tuataras"
+category: "SEO"
+coverImage: "/illustrations/quality-code.svg"
+readTime: 6
+---
+
+Las **Core Web Vitals** son las 3 métricas que Google usa explícitamente para rankear tu sitio. Si están en rojo, perdés tráfico y conversión sin saberlo. Si están en verde, ganás ambos. Te mostramos cómo llevarlas a verde.
+
+## Las 3 métricas
+
+### LCP — Largest Contentful Paint
+**Qué mide**: tiempo hasta que el elemento más grande de la página se ve.
+**Bueno**: &lt;2.5s. **Pobre**: >4s.
+**Causas comunes**: imágenes pesadas, fonts bloqueantes, server lento.
+
+### INP — Interaction to Next Paint
+**Qué mide**: latencia entre que clickás/tocás algo y la página responde.
+**Bueno**: &lt;200ms. **Pobre**: >500ms.
+**Causas comunes**: JavaScript pesado en main thread, listeners costosos.
+
+### CLS — Cumulative Layout Shift
+**Qué mide**: cuánto se mueve el layout durante la carga (frustración visual).
+**Bueno**: &lt;0.1. **Pobre**: >0.25.
+**Causas comunes**: imágenes sin dimensiones, ads que aparecen, fonts que cambian tamaño.
+
+## Cómo medir bien
+
+### Lab data (sintético)
+- **Lighthouse** (Chrome DevTools).
+- **PageSpeed Insights** (web).
+- **WebPageTest** (más control).
+
+### Field data (usuarios reales)
+- **Search Console** → Web Vitals report.
+- **CrUX dashboard** (Chrome User Experience Report).
+- **Vercel Analytics, RUM tools** (Datadog, New Relic).
+
+**El que importa para SEO es field data**, no lab. Tu Lighthouse 95 no compensa CrUX malo.
+
+## Plan para mejorar LCP
+
+1. **Identificá el LCP element** (en DevTools, suele ser hero image o título).
+2. **Optimizá ese element específicamente**:
+   - Imagen: WebP/AVIF, dimensiones explícitas, `loading="eager"` (no lazy), `fetchpriority="high"`.
+   - Texto: font display swap, preload de fonts críticos.
+3. **TTFB rápido**: hosting cerca del usuario (CDN), cache agresivo.
+4. **Eliminá render-blocking resources** (CSS y JS).
+
+## Plan para mejorar INP
+
+1. **JavaScript audit**: tirá lo no usado (`Coverage` tab en DevTools).
+2. **Code split**: cargá JS solo cuando se necesita.
+3. **Defer / async** en scripts no críticos.
+4. **Web workers** para procesamiento pesado.
+5. **Optimizá listeners**: debounce/throttle inputs frecuentes.
+6. **Reducí third-party scripts**: cada chat widget, analytics, ad pixel suma latencia.
+
+## Plan para mejorar CLS
+
+1. **Imágenes con `width` y `height`** explícitos. Aspect ratio reservado.
+2. **Iframes y embeds** con dimensiones reservadas.
+3. **Fonts**: `font-display: optional` o preload + tamaño compatible.
+4. **Sin contenido inyectado arriba** del existente (banners de cookies, ads, etc).
+5. **Reservá espacio** para elementos que cargan async.
+
+## Las herramientas que aceleran el trabajo
+
+- **Vercel Speed Insights / Cloudflare Web Analytics**: real user monitoring fácil.
+- **Lighthouse CI**: tests automáticos en cada deploy.
+- **Bundle analyzer** (webpack, Vite): saber qué pesa.
+- **DebugBear / SpeedCurve**: monitoring continuo.
+
+## Errores comunes
+
+- **Optimizar lab data** y olvidar field data.
+- **Una sola página optimizada** y el resto en rojo.
+- **Quick fixes que rompen** UX (ej: lazy loading hero).
+- **Sin monitorización**: mejorás un día, regresa al siguiente con un cambio.
+
+## El impacto medido
+
+Sitio e-commerce con CWV en rojo:
+- LCP: 4.2s → 1.8s
+- INP: 380ms → 120ms
+- CLS: 0.32 → 0.04
+
+**Resultado en 90 días**: tráfico orgánico +28%, conversión +14%, ranking promedio +6 posiciones para keywords competitivas.
+
+## Conclusión
+
+Core Web Vitals no son métricas técnicas — son métricas de revenue. Cada mejora se traduce en SEO y conversión. ¿Te ayudamos a llevarlas a verde? [Conversemos](/es/contacto).

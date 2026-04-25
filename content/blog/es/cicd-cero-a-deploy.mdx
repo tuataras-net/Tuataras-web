@@ -1,0 +1,82 @@
+---
+title: "CI/CD pipelines: del cero al primer deploy en producción"
+excerpt: "Guía práctica para implementar tu primer pipeline de CI/CD: stack moderno, etapas críticas y errores comunes que evitar."
+date: "2026-03-27"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/cicd.svg"
+readTime: 6
+---
+
+Si todavía hacés deploys subiendo archivos por SFTP o "el lunes a las 6am cuando nadie está", estás dejando velocidad y confiabilidad sobre la mesa. CI/CD moderno te permite desplegar varias veces al día con confianza.
+
+## Las 5 etapas mínimas
+
+1. **Build**: compilar/transpilar, generar artefacto.
+2. **Test**: unitarios + integración + lint.
+3. **Security scan**: vulnerabilidades en dependencias y código.
+4. **Deploy a staging**: ambiente espejo de prod.
+5. **Deploy a producción**: con aprobación o automático según madurez.
+
+## Stack moderno 2026
+
+- **GitHub Actions / GitLab CI**: plataformas dominantes, integradas al repo.
+- **Vercel / Netlify**: para frontends modernos, deploy automático con cada push.
+- **Argo CD / Flux**: GitOps para Kubernetes.
+- **Terraform / Pulumi**: infraestructura como código.
+
+## El primer pipeline mínimo viable
+
+```yaml
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./deploy.sh
+```
+
+Eso solo ya te da: nadie deploya código que no pasó tests, deploy automático al pushear a main.
+
+## Los gates que debe pasar tu código
+
+| Gate | Bloquea si falla |
+|---|---|
+| Linter / formatter | Sí (corregible) |
+| Tests unitarios | Sí |
+| Coverage mínimo (ej. 70%) | Configurable |
+| Security scan (Snyk, Dependabot) | Sí en críticos |
+| Build success | Sí |
+
+## Estrategias de deploy seguro
+
+- **Blue-Green**: dos ambientes, switch instantáneo, rollback en segundos.
+- **Canary**: 5% del tráfico nuevo → monitor → escalar gradual.
+- **Feature flags**: deploy ≠ release. Activás features cuando querés.
+- **Rolling**: actualización por instancias, sin downtime.
+
+## Errores comunes
+
+- **Tests lentos**: si tu suite tarda 30 min, nadie va a esperar. Optimiza o paraleliza.
+- **Sin staging real**: deployar a prod "esperando que funcione".
+- **Secrets en código**: usá secret managers (Vault, AWS Secrets Manager).
+- **Sin rollback automático**: si la métrica X baja, revertir solo.
+
+## Métricas DORA que ganás con buen CI/CD
+
+- **Deployment frequency**: de mensual a diario o más.
+- **Lead time**: de días a horas.
+- **MTTR**: de horas a minutos.
+- **Change failure rate**: típicamente baja al implementar buenos gates.
+
+## Conclusión
+
+CI/CD no es lujo de equipos grandes — es higiene básica de cualquier equipo de desarrollo serio en 2026. ¿Te ayudamos a montar el tuyo? [Conversemos](/es/contacto).

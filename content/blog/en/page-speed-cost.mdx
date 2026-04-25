@@ -1,0 +1,56 @@
+---
+title: "Page speed: the invisible cost of a slow website"
+excerpt: "How every extra second of load steals conversions, ranking and reputation. And what to do about it concretely."
+date: "2026-04-16"
+author: "Tuataras Team"
+category: "Web Development"
+coverImage: "/illustrations/quality-code.svg"
+readTime: 6
+---
+
+Your site loads in 4 seconds and you think it's fine. It isn't. Every extra second is costing you measurable money — in conversion, SEO ranking and brand perception.
+
+## The numbers that hurt
+
+- **+1s of load** = -7% conversion (Akamai).
+- **+3s of load** = +32% probability of abandonment (Google).
+- **Sites under 2.5s LCP** rank better than slower ones with same content.
+- **Mobile**: 53% abandons if a page takes more than 3s.
+
+## The 5 most common causes
+
+### 1. Unoptimized images
+4MB PNG uploads are the norm. Solution: WebP/AVIF, srcset, lazy loading, explicit dimensions.
+
+### 2. Heavy JavaScript
+Old frameworks, untreeshaken bundles, unnecessary polyfills. Audit with Lighthouse and remove unused.
+
+### 3. Shared or distant hosting
+US server selling to LATAM = added latency a CDN for assets alone won't fix.
+
+### 4. Plugins loading everything everywhere
+Common in WordPress: 30+ plugins active loading JS/CSS on home even when only used on checkout.
+
+### 5. No CDN or cache
+HTML, images and assets served from origin every time. Solution: edge CDN (Cloudflare, Vercel, Fastly).
+
+## Metrics that actually matter
+
+- **LCP** (Largest Contentful Paint): &lt;2.5s target.
+- **INP** (Interaction to Next Paint): &lt;200ms.
+- **CLS** (Cumulative Layout Shift): &lt;0.1.
+
+These are the **Core Web Vitals** Google uses for ranking.
+
+## 30-day remediation plan
+
+**Week 1**: measure. Lighthouse + PageSpeed Insights + WebPageTest. Per-template baseline.
+**Week 2**: images and fonts. Highest-impact quick wins.
+**Week 3**: JS — remove unused, code split, defer.
+**Week 4**: cache, CDN, correct headers.
+
+Typical result: Lighthouse 50–60 → 85–95. Conversion: +12 to +25%.
+
+## Conclusion
+
+Performance isn't vanity — it's revenue. A fast site converts more, ranks better and costs less to serve. Want a free speed audit? [Let's talk](/en/contact).

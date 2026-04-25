@@ -1,0 +1,74 @@
+---
+title: "Observability: catching bugs before customers report them"
+excerpt: "Logs, metrics and traces explained without jargon. How to build observability that actually helps detect and resolve issues."
+date: "2026-03-25"
+author: "Tuataras Team"
+category: "DevOps"
+coverImage: "/illustrations/monitoring.svg"
+readTime: 6
+---
+
+If you find out about bugs because a customer reported them, you're late. Good observability tells you first — and shows you what to fix before support answers the first ticket.
+
+## The 3 pillars
+
+### 1. Logs
+Discrete events with context. Example: "user 123 attempted login, failed, IP X".
+**Use**: investigate after the fact.
+
+### 2. Metrics
+Numeric time series. Example: "requests/sec = 432, error rate = 1.2%".
+**Use**: alert when something deviates.
+
+### 3. Traces
+Request path through all services. Example: "request X took 3.2s — 200ms in API, 2.5s in query, 500ms in payment".
+**Use**: find bottlenecks in distributed systems.
+
+## Modern 2026 stack
+
+- **Datadog / New Relic / Honeycomb**: enterprise, all-in-one.
+- **Grafana + Prometheus + Loki + Tempo**: powerful open source.
+- **OpenTelemetry**: instrumentation standard.
+- **Sentry**: frontend + backend errors with full stack traces.
+- **Better Stack / Axiom**: modern alternatives with great UX.
+
+## Alerts you should NOT ignore
+
+| Type | Alert when |
+|---|---|
+| Availability | Healthcheck fails >2 min |
+| Error rate | >1% for 5 min |
+| P99 latency | >2x baseline |
+| Memory/CPU | >85% sustained |
+| Business | Sign-ups drop 30% vs typical hour |
+
+## Alerts you SHOULD ignore (delete them)
+
+- Those firing >1×/day without action.
+- Those needing 5 min of investigation to know if real.
+- "Informational" ones nobody reviews.
+
+**Rule**: every alert must be actionable. Otherwise it's noise — and noise trains the team to ignore.
+
+## Business metrics (not just technical)
+
+The most valuable metrics cross tech and business:
+- Conversions per minute vs rolling avg.
+- Checkout completion rate.
+- Active sessions vs expected seasonality.
+
+A drop here anticipates revenue drops before tech metrics show them.
+
+## The "blameless postmortem"
+
+When something fails, postmortem focuses on:
+- What happened (factual timeline)
+- How it was detected
+- Response speed
+- What was learned (actions, not blame)
+
+Without this, learning is lost and bugs repeat.
+
+## Conclusion
+
+Good observability is the difference between "we have an incident" and "we had an incident nobody noticed". Costs upfront effort, pays compounding. Want help setting yours up? [Let's talk](/en/contact).

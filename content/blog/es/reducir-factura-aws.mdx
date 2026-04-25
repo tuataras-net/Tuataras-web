@@ -1,0 +1,84 @@
+---
+title: "Reducir tu factura de AWS sin sacrificar performance: la guía 2026"
+excerpt: "Patrones probados para bajar 30–60% el gasto en AWS sin afectar disponibilidad ni performance."
+date: "2026-03-29"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/cloud-infra.svg"
+readTime: 7
+---
+
+¿Tu factura de AWS creció más rápido que tu negocio? No estás solo. La mayoría de cuentas tienen 30–60% de gasto innecesario que nadie revisa. Te mostramos cómo encontrarlo y eliminarlo.
+
+## Los 7 desperdicios más comunes
+
+### 1. Recursos zombies
+EBS volumes huérfanos, snapshots antiguos, IPs elásticas no asociadas, load balancers inactivos. **Quick win**: $500–$5k/mes recuperables en cuentas medianas con AWS Trusted Advisor o Cost Explorer.
+
+### 2. Instancias sobredimensionadas
+80% de las EC2 corren a &lt;30% de CPU. Right-sizing con AWS Compute Optimizer puede ahorrar 25–40%.
+
+### 3. Sin Reserved/Savings Plans
+On-demand para cargas estables = pagar lista de precios. RIs y Savings Plans bajan el costo 40–72% para predecible.
+
+### 4. Datos en S3 Standard que deberían estar en IA o Glacier
+Lifecycle policies automatizadas mueven archivos viejos. Standard a Glacier = -90% de costo de storage.
+
+### 5. Egress de datos desconocido
+Transferencia entre regiones, hacia internet, entre servicios mal arquitectados. Auditá con CloudWatch + Cost Explorer agrupado por servicio.
+
+### 6. Logs y métricas sin retención clara
+CloudWatch logs sin expiración acumulan TB. Definir retention policy adecuada por tipo: 7 días app logs, 90 días audit, 1 año compliance.
+
+### 7. Ambientes no productivos siempre encendidos
+Dev y staging corriendo 24/7 cuando solo se usan 40h/semana. AWS Instance Scheduler los apaga fuera de horario: -60%+ en esos ambientes.
+
+## El plan de optimización en 30 días
+
+**Semana 1 — Visibilidad**
+- Activar Cost Allocation Tags por proyecto/equipo.
+- Configurar AWS Budgets con alertas.
+- Cost Explorer + AWS Cost Anomaly Detection.
+
+**Semana 2 — Quick wins**
+- Eliminar zombies vía Trusted Advisor.
+- Lifecycle policies a S3.
+- Apagar ambientes non-prod fuera de horario.
+
+**Semana 3 — Right-sizing**
+- Compute Optimizer recommendations.
+- Migrar instancias x86 a Graviton (ARM): -20–40% costo + mejor perf.
+- Spot instances para cargas tolerantes a interrupciones.
+
+**Semana 4 — Compromisos**
+- Análisis de uso histórico de 3 meses.
+- Comprar Savings Plans para baseline estable.
+- Reservar RDS y ElastiCache para cargas predecibles.
+
+## Patrones arquitectónicos para ahorrar
+
+- **Serverless donde tenga sentido**: Lambda + API Gateway para tráfico variable. Pagás por uso real.
+- **CloudFront agresivo**: cachear todo lo cacheable, evitar hits a origen.
+- **Multi-AZ solo donde lo justifique el SLA**: dev/staging no necesita.
+- **Auto-scaling correcto**: scale-in agresivo, scale-out conservador.
+
+## Caso real
+
+Cliente SaaS B2B con factura $42k/mes. Auditoría de 3 semanas. Acciones aplicadas:
+- Right-sizing de 80 instancias EC2: -$8k/mes
+- Migración a Graviton: -$4k/mes
+- Savings Plans 1-year: -$6k/mes
+- Cleanup de S3 + lifecycle: -$3k/mes
+- Apagado non-prod nocturno: -$2k/mes
+
+**Resultado**: $19k/mes ahorrados (45% reducción), sin cambios funcionales.
+
+## Cuándo NO obsesionarse con costo
+
+- Producto en hipercrecimiento donde velocidad > eficiencia.
+- Ambientes regulatorios con compliance no negociable.
+- Optimizaciones que requieren refactor mayor con bajo ROI.
+
+## Conclusión
+
+Optimización cloud no es one-shot — es disciplina recurrente. Trimestralmente alguien debe mirar la factura como producto. ¿Querés un audit de costos AWS? [Conversemos](/es/contacto).

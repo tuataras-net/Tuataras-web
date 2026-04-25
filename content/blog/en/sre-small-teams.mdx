@@ -1,0 +1,78 @@
+---
+title: "SRE for small teams: pragmatic Site Reliability Engineering"
+excerpt: "How to apply SRE practices without a 20-person dedicated team. SLOs, error budgets and on-call for small teams."
+date: "2026-03-21"
+author: "Tuataras Team"
+category: "DevOps"
+coverImage: "/illustrations/monitoring.svg"
+readTime: 6
+---
+
+SRE was born at Google with huge teams. But the principles work at any scale — even if your "platform team" is just you. Here's the version adapted for 5–30 person teams.
+
+## The 3 concepts that matter
+
+### 1. SLO (Service Level Objective)
+"Our API responds in &lt;500ms 99.5% of the time this quarter."
+- A measurable promise.
+- Agreed between product and eng.
+- Starting point for everything else.
+
+### 2. Error budget
+If your SLO is 99.5%, your error budget is 0.5% downtime/month (~3.6h).
+- Budget left → you can take risky changes, frequent deploys.
+- Budget spent → freeze on non-critical changes until recovered.
+
+### 3. Toil
+Manual repetitive reactive work. SRE goal is &lt;50% time on toil.
+- Cross that, automate more.
+- Measure it: a sprint, log every hour what was toil.
+
+## Minimal stack
+
+- **Uptime monitoring**: Better Stack, Pingdom, Healthchecks.io.
+- **Error tracking**: Sentry.
+- **Logs**: Logtail, Axiom or cloud native.
+- **Status page**: Statuspage.io or Better Stack.
+- **On-call rotation**: Better Stack, PagerDuty, Opsgenie.
+
+Total monthly for small team: $50–$300.
+
+## On-call for 4–8 dev teams
+
+- **Weekly rotation**, not short shifts (more tiring).
+- **Only truly urgent alerts** wake people.
+- **Clear compensation**: paid, time-off, or both.
+- **Runbook per alert**: on-call shouldn't debug from scratch.
+- **Always post-mortem**, blameless, with concrete action.
+
+## Essential runbook
+
+Per critical alert, document:
+1. **What** the alert means.
+2. **What impact** on customer.
+3. **How to verify** it's real (not false positive).
+4. **How to mitigate** fast (rollback, scale, kill).
+5. **How to escalate** if you can't resolve in X min.
+
+No runbook = every incident is anxiety from zero.
+
+## Recommended practice: light chaos engineering
+
+Once a quarter:
+- Deliberately turn off a service in staging.
+- See what fails, recovers, you find out late about.
+- Improve what surfaced.
+
+You don't need Chaos Monkey — `kubectl delete pod` or `aws ec2 terminate-instances` is enough.
+
+## Common small-team mistakes
+
+- Aspirational SLOs (99.99%) nobody can meet.
+- Over-sensitive alerts that train you to ignore.
+- No error budget → everything is priority → nothing is.
+- Watching technical availability but not real UX (synthetic vs real).
+
+## Conclusion
+
+SRE doesn't require a big team — it requires discipline and the right tools. Done well in small teams, improves quality without sacrificing velocity. Want to set up your SRE practice? [Let's talk](/en/contact).

@@ -1,0 +1,126 @@
+---
+title: "Sitemap, robots.txt and crawl budget: what few sites get right"
+excerpt: "How Google crawls your site, what robots.txt vs sitemap controls, and how to optimize crawl budget for large sites."
+date: "2026-02-09"
+author: "Tuataras Team"
+category: "SEO"
+coverImage: "/illustrations/quality-code.svg"
+readTime: 6
+---
+
+60% of sites have errors in `robots.txt` or `sitemap.xml`. Most don't notice because it doesn't destroy SEO overnight — it silently drags it. Here's what to review and fix.
+
+## What each does
+
+### robots.txt
+Tells crawlers **what NOT to crawl**. Lives at `yourdomain.com/robots.txt`.
+
+### sitemap.xml
+Tells Google **what you want considered**. List of important URLs with metadata.
+
+**Not interchangeable**: robots.txt doesn't guarantee no indexing (only no crawling). To not index: `noindex` in HTML or headers.
+
+## Minimum robots.txt structure
+
+```
+User-agent: *
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /*?session=
+
+Sitemap: https://yourdomain.com/sitemap.xml
+```
+
+**Rules**:
+- Start permissive, block only what makes sense.
+- Blocking `?session` and similar avoids duplicate content.
+- Explicitly list your sitemap.
+
+## Typical mistakes
+
+### 1. Blocking what you want indexed
+Accidental `Disallow: /` destroys SEO completely. Happens more than you think when promoting staging to prod.
+
+### 2. Assuming `Disallow` hides
+No. If Google found URL via external link, it can index it even without crawling. To hide: `noindex` + no internal links.
+
+### 3. Different robots between staging and prod
+You upload staging robots to prod by accident. Watch the deploy.
+
+### 4. Not testing in Search Console
+There's a robots.txt tester in GSC. Use it before deploying.
+
+## Sitemap.xml done right
+
+### Size
+Max **50,000 URLs or 50MB** per sitemap. Larger → split + sitemap index.
+
+### Freshness
+Dynamically generated with each change, not static-stale.
+
+### Only canonical URLs
+Don't include parameter variants, redirects, 404s.
+
+### By type
+Separate sitemaps per type (products, posts, static pages) ease diagnosis in Search Console.
+
+### Well-structured example
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yourdomain.com/blog/post-1</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+```
+
+`changefreq` and `priority` are weak hints — Google considers them little. **What matters**: `loc` and `lastmod`.
+
+## Crawl budget: what and when it matters
+
+**Crawl budget** = how many URLs Google is willing to crawl on your site in a period.
+
+### When it matters
+- **Large sites** (50k+ URLs).
+- **Sites with lots of new content** needing fast indexing.
+- **E-commerce** with many variants/filters.
+
+### When it doesn't
+- Sites &lt;1000 pages. Google crawls them all without problem.
+
+### How to optimize it
+
+1. **Block irrelevant** (filters with many combinations, empty tags, duplicated archive pages).
+2. **Correct canonical** so Google knows preferred version.
+3. **Smart internal linking**: important get more links.
+4. **Fast 404s**: not 200 responses with "not found".
+5. **Server speed**: Google crawls more if your server responds fast.
+
+## Diagnosis with Search Console
+
+**Crawl Stats** section: tells you crawled URLs, avg response time, file types.
+
+**Pages** section: indexed vs non-indexed with reason. If "Discovered - currently not indexed" is high, quality or crawl budget issue.
+
+## Real case
+
+E-commerce with 80k URLs, 95% products. Only 22k indexed. Analysis:
+
+- 30k URLs were combined filters without value.
+- 8k were undetected 404s.
+- Sitemap included tracking parameter URLs.
+
+Actions:
+- Block filters in robots.txt.
+- Eliminate 404s or redirect to category.
+- Sitemap only with clean canonical URLs.
+
+**Result in 60 days**: indexing rose to 65k, organic traffic +52%, more efficient crawl rate.
+
+## Conclusion
+
+Sitemap, robots.txt and crawl budget are invisible but critical fundamentals. Misconfigured, they brake SEO unknowingly. Configured well, they're rails content travels on. Want yours audited? [Let's talk](/en/contact).

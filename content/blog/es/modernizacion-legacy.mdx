@@ -1,0 +1,93 @@
+---
+title: "Modernización de sistemas legacy: el plan paso a paso sin romper la operación"
+excerpt: "Cómo migrar de un sistema legacy a tecnología moderna sin frenar el negocio. Estrategias probadas y errores que evitar."
+date: "2026-03-17"
+author: "Equipo Tuataras"
+category: "Consultoría"
+coverImage: "/illustrations/digital-transform.svg"
+readTime: 7
+---
+
+Tu sistema crítico corre en una tecnología que pocos saben mantener, los costos de soporte crecen y bloquea cualquier mejora que pidas. Es momento de modernizar — pero hacerlo sin romper el negocio es el verdadero desafío.
+
+## Las 6 estrategias de modernización (las 6 R)
+
+### 1. Rehost ("lift and shift")
+Mover tal cual a cloud. Rápido, bajo riesgo, beneficios limitados.
+**Bueno para**: cuando time-to-cloud es prioridad y la arquitectura es razonable.
+
+### 2. Replatform
+Mover a cloud con cambios menores (managed DB, container).
+**Bueno para**: ganancias rápidas sin reescribir.
+
+### 3. Repurchase
+Reemplazar con SaaS comercial.
+**Bueno para**: procesos estándar (RRHH, contabilidad, CRM básico).
+
+### 4. Refactor
+Reescribir manteniendo funcionalidad equivalente.
+**Bueno para**: el core del negocio que necesita modernización profunda.
+
+### 5. Rearchitect
+Repensar arquitectura completa (monolito → servicios, on-prem → cloud-native).
+**Bueno para**: sistemas que necesitan escalar diferente o cambiar fundamentalmente.
+
+### 6. Retire
+Apagarlo. Suena obvio pero el 15% de los sistemas legacy ya no se usan realmente.
+
+## El patrón Strangler Fig
+
+El más usado y exitoso. Idea: en lugar de reemplazar el sistema viejo de un día para otro, **lo "estrangulás" gradualmente**.
+
+1. Construís nueva funcionalidad como servicio aparte.
+2. Gateway/API en frente que decide: ¿al sistema viejo o al nuevo?
+3. Migrás features uno a uno, en producción, con rollback inmediato.
+4. Cuando el viejo no tiene tráfico, lo apagás.
+
+Tiempo típico: 12–36 meses para sistemas medianos. Riesgo controlado.
+
+## El plan de 18 meses típico
+
+**Mes 1–3 — Descubrimiento**
+- Inventario de funcionalidades reales (vs documentación).
+- Mapeo de dependencias y datos.
+- Acuerdos sobre alcance, criterios de éxito y rollback.
+
+**Mes 4–6 — Foundation nueva**
+- Stack moderno elegido y validado.
+- Pipeline CI/CD funcionando.
+- Primera funcionalidad menor migrada como prueba.
+
+**Mes 7–14 — Migración progresiva**
+- Una funcionalidad por sprint con feature flags.
+- Métricas comparativas viejo vs nuevo.
+- Coexistencia controlada.
+
+**Mes 15–18 — Cierre**
+- Retirar últimos pedazos del legacy.
+- Decommission infraestructura vieja.
+- Postmortem y aprendizajes.
+
+## Los riesgos reales
+
+- **Datos**: la migración de datos es 60% del esfuerzo subestimado.
+- **Lógica oculta**: la documentación nunca está completa. Hay reglas en el código que nadie recuerda.
+- **Personas**: quienes mantienen el legacy a veces resisten — es su zona de poder.
+- **Compliance**: reportes regulatorios pueden romperse en el camino.
+
+## Errores que matan proyectos
+
+- Big-bang rewrite (reescribir todo de un día para otro).
+- Subestimar que "el legacy funciona" — la inercia es real.
+- Sin sponsor ejecutivo que sostenga el proyecto en momentos duros.
+- Cambiar requisitos a mitad del camino sin re-planificar.
+
+## Caso real
+
+Cliente con sistema crítico en COBOL + AS400 desde 1998. Migración progresiva a microservicios en cloud durante 22 meses.
+
+**Resultado**: 60% reducción en costos operativos, 8x más rápido para releases, talento más fácil de contratar, flexibilidad para nuevos productos imposibles antes.
+
+## Conclusión
+
+Modernizar legacy no es proyecto técnico — es proyecto de negocio con componente técnico. Bien hecho, libera competitividad. Mal hecho, paraliza la empresa. ¿Te ayudamos a planificar la tuya? [Conversemos](/es/contacto).

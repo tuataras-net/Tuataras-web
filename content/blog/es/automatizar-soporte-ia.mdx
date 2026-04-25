@@ -1,0 +1,95 @@
+---
+title: "Automatizar atención al cliente con IA: el playbook 2026"
+excerpt: "Cómo aplicar IA en customer support sin perder calidad ni empatía. Casos, métricas y arquitectura recomendada."
+date: "2026-03-07"
+author: "Equipo Tuataras"
+category: "IA Aplicada"
+coverImage: "/illustrations/support.svg"
+readTime: 6
+---
+
+La IA está reescribiendo cómo se hace soporte al cliente. Bien aplicada, multiplica capacidad sin sacrificar empatía. Mal aplicada, frustra a tus mejores clientes. Te mostramos cómo distinguir.
+
+## Las 4 capas de automatización
+
+### Capa 1: Self-service mejorado
+Búsqueda semántica en tu base de conocimiento. El usuario pregunta en lenguaje natural y obtiene respuestas relevantes — antes de necesitar humano.
+
+**Impacto**: -25 a -40% de tickets abiertos.
+
+### Capa 2: Asistente para agentes
+La IA no responde al cliente, asiste al humano. Sugiere respuestas, busca casos similares, traduce, resume hilos largos.
+
+**Impacto**: tiempo medio de respuesta -50%, agentes nuevos productivos en semanas no meses.
+
+### Capa 3: Resolución autónoma de tickets simples
+Para categorías bien definidas (cambios de password, devoluciones bajo policy, info de pedido), la IA resuelve completo y cierra.
+
+**Impacto**: 30–50% de tickets cerrados sin humano, CSAT igual o mejor.
+
+### Capa 4: Detección proactiva
+La IA analiza patrones — picos de consultas similares, sentiment negativo en social, errores recurrentes — y avisa al equipo antes que escale.
+
+**Impacto**: prevención > reacción.
+
+## La arquitectura recomendada
+
+```
+Cliente
+   ↓
+[Frontend: chat / email / WhatsApp]
+   ↓
+[Router IA: clasifica intent y urgencia]
+   ↓
+   ├─ Self-service (RAG sobre KB)
+   ├─ Auto-resolución (tickets simples)
+   └─ Humano (con contexto + sugerencias IA)
+   ↓
+[Sistema de tickets / CRM]
+   ↓
+[Analytics: CSAT, NPS, métricas operativas]
+```
+
+## Stack 2026
+
+- **LLM core**: Claude / GPT / Gemini API.
+- **Vector DB**: Pinecone, pgvector, Weaviate (para RAG).
+- **Plataforma de tickets**: Intercom (Fin), Zendesk (AI), Freshdesk Freddy.
+- **Orquestación**: LangChain, custom o platform-native.
+- **Observabilidad de IA**: Langfuse, Helicone para monitorear calidad.
+
+## Lo que NO debe hacer la IA
+
+- **Tomar decisiones que afecten dinero o legal sin humano**.
+- **Hablar como humano sin disclaimer**.
+- **Atender quejas emocionales fuertes** sin escalar.
+- **Mentir cuando no sabe**: "no estoy seguro, te conecto con alguien".
+
+## Métricas que probar y comparar
+
+| Métrica | Pre-IA | Post-IA bien hecha |
+|---|---|---|
+| First Response Time | 2–8h | &lt;1min para auto-resuelto |
+| Resolution Time | 24–72h | -40% promedio |
+| CSAT | Baseline | Igual o +5% |
+| Tickets/agente | Baseline | +60–120% capacidad |
+| Costo por ticket | Baseline | -35–55% |
+
+## Errores que destruyen calidad
+
+- IA respondiendo sin ground truth: alucina, daña confianza.
+- Sin opción visible para hablar con humano.
+- Métricas solo de eficiencia, no de satisfacción.
+- Implementación big-bang en lugar de gradual por categoría.
+
+## Cómo implementarlo (90 días)
+
+**Mes 1**: discovery. Análisis de tickets pasados, categorización, identificación de "low-hanging fruit".
+
+**Mes 2**: piloto en 1–2 categorías de tickets simples. Auto-resolución con escalación obvia. A/B con cohorte de control.
+
+**Mes 3**: medir, ajustar prompts y guardrails. Expandir a más categorías. Capacitar al equipo de soporte en el nuevo flujo.
+
+## Conclusión
+
+Automatizar soporte con IA no es sustituir humanos — es liberarlos de lo repetitivo para que dediquen su tiempo a lo que realmente requiere empatía y juicio. ¿Diseñamos tu implementación? [Conversemos](/es/contacto).

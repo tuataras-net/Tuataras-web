@@ -1,0 +1,108 @@
+---
+title: "Bots de Slack que sí ahorran tiempo (no spam)"
+excerpt: "Casos reales de bots de Slack útiles para equipos modernos. Cuáles construir y cuáles comprar."
+date: "2026-02-19"
+author: "Equipo Tuataras"
+category: "Automatización"
+coverImage: "/illustrations/automation.svg"
+readTime: 5
+---
+
+Slack puede ser productividad o ruido. Los bots bien diseñados hacen la diferencia: el equipo recupera horas semanales y la comunicación mejora. Mal diseñados, son notificaciones que todos silencian.
+
+## Los 10 bots con mejor ROI
+
+### 1. Standup async
+- Bot pregunta a cada uno: "¿Qué hiciste ayer? ¿Qué hoy? ¿Bloqueos?"
+- Consolida en canal único.
+- Reemplaza reunión diaria de 15min × N personas.
+**Tools**: Geekbot, Range, custom con Slack API.
+
+### 2. Vacaciones / OOO
+- Comando `/vacaciones` solicita días.
+- Aprueba el manager con un emoji.
+- Marca calendario y avisa al equipo.
+
+### 3. Compartir feedback / kudos
+- Comando `/kudos @persona razón`.
+- Visible en canal de cultura.
+- Reconocimiento queda registrado para reviews.
+
+### 4. Onboarding del nuevo
+- Cuando alguien se une, bot le manda mensajes graduales con info clave.
+- Le presenta a su buddy.
+- Recolecta feedback al día 30/60/90.
+
+### 5. Recordatorios de tickets / PRs
+- "Tu PR lleva 3 días sin review".
+- "Ticket #234 vencido hace 2h".
+- Sin spam: solo lo que realmente requiere acción.
+
+### 6. Alertas inteligentes
+- Métrica X cae 30% → bot avisa al canal correcto con contexto.
+- Solo alertas accionables, no logs random.
+
+### 7. FAQ interno con IA
+- Comando `/ask política de viajes`.
+- IA responde con info de tus docs (RAG).
+- Reduce preguntas repetidas en HR/IT/Legal.
+
+### 8. Sondeos rápidos
+- `/poll ¿pizza o sushi?`.
+- Resultado en tiempo real.
+- Reemplaza 15 mensajes de "yo voto X".
+
+### 9. Recordatorios personales
+- "Avisame mañana 9am revisar email de cliente X".
+- Para tareas que viven en Slack, queda en Slack.
+
+### 10. Daily digest
+- Resumen del día en canales muy activos.
+- Para quien no estuvo o no quiere scrollear 200 mensajes.
+
+## Bots que NO funcionan
+
+- **Notification bombing**: notifica todo. La gente silencia el canal.
+- **Sin contexto**: "alerta!" sin info accionable.
+- **Reemplazo de email**: 15 mensajes para algo que era 1 email.
+- **Sin manera de configurar / silenciar**: cero respeto al usuario.
+
+## Construir vs comprar
+
+### Comprá si...
+- El caso es genérico (standup, OOO, kudos).
+- Hay solución madura ya integrada.
+- Tu equipo no quiere mantener.
+
+### Construí si...
+- El caso es específico de tu operación.
+- Querés integrar con sistemas internos.
+- Tu equipo tiene bandwidth.
+
+## Stack para construir
+
+- **Slack Bolt** (Node, Python, Java): SDK oficial.
+- **Hosting**: Vercel/Cloudflare Workers para bots simples.
+- **Slash commands + Block Kit** para UIs interactivas.
+- **n8n / Make**: para bots no-code conectados a otras apps.
+
+## Errores comunes al construir
+
+- **Sin manejo de rate limits** de Slack API.
+- **Tokens hardcodeados** en código.
+- **Sin entorno de testing**: probás en producción.
+- **Subestimar el costo de mantenimiento**: cada bot es software que mantener.
+
+## Caso real
+
+Empresa de 80 personas. Adoptaron 4 bots:
+- Standup async: ahorró 250 horas/mes (5 reuniones × 12 equipos).
+- FAQ con IA: -40% preguntas a HR.
+- Recordatorios de PRs: lead time -25%.
+- Kudos: NPS interno +12 puntos.
+
+Costo total mensual: $200. ROI: estimado 50x.
+
+## Conclusión
+
+Bots de Slack bien diseñados son herramientas, no más ruido. La regla: ¿le ahorra tiempo a alguien o le agrega tareas? Si es lo segundo, no se construye. ¿Querés diseñar el stack ideal? [Conversemos](/es/contacto).

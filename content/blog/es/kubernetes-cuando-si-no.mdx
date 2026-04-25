@@ -1,0 +1,72 @@
+---
+title: "Kubernetes: cuándo SÍ y cuándo NO en 2026"
+excerpt: "El criterio honesto para decidir si tu empresa necesita Kubernetes o si es overkill caro. Alternativas modernas que muchas veces ganan."
+date: "2026-03-23"
+author: "Equipo Tuataras"
+category: "DevOps"
+coverImage: "/illustrations/devops.svg"
+readTime: 6
+---
+
+Kubernetes es el estándar de orquestación. También es el causante de muchos sistemas innecesariamente complejos. Te ayudamos a decidir si lo necesitas o si estás cargando peso sin razón.
+
+## Cuándo SÍ tiene sentido
+
+- **Múltiples equipos** desplegando servicios independientes.
+- **30+ microservicios** que requieren coordinación.
+- **Necesidades multi-cloud** o portabilidad fuerte.
+- **Cargas heterogéneas**: batch + APIs + workers + cron en un solo cluster.
+- **Equipo dedicado a plataforma** que pueda mantenerlo.
+
+## Cuándo NO
+
+- Tenés 1–5 servicios.
+- Tu equipo de devs es &lt;15 personas.
+- No tenés un platform engineer dedicado.
+- Tu carga es predecible y modesta.
+- Querés simplicidad operacional.
+
+## Alternativas que muchas veces ganan
+
+### Para apps simples a medianas
+- **Vercel / Netlify / Cloudflare Pages**: frontends modernos.
+- **Render / Railway / Fly.io**: backends + DB sin pelear con YAML.
+- **AWS App Runner / Google Cloud Run**: containers gestionados.
+
+### Para escala media con simplicidad
+- **AWS ECS Fargate**: containers sin gestionar nodos.
+- **GCP Cloud Run**: serverless containers.
+- **Heroku** (sigue siendo razonable para muchos casos).
+
+### Si querés Kubernetes pero no morirte gestionándolo
+- **AWS EKS / GKE / AKS**: control plane gestionado.
+- **Operadores y plataformas** (Crossplane, Backstage) para reducir cognitive load.
+
+## El costo escondido de Kubernetes
+
+- Necesitás expertise: 1 platform engineer ≈ $80–$180k/año.
+- Curva de aprendizaje del equipo: 3–6 meses.
+- Herramientas adicionales: Istio, Helm, ArgoCD, Prometheus, etc.
+- Networking, RBAC, secrets — cada uno es proyecto en sí.
+
+Para un equipo chico, esto puede ser **el 30% de la velocidad** "invertida en infra".
+
+## Patrón híbrido (recomendado para muchos)
+
+- **Frontend**: edge platform (Vercel, Cloudflare).
+- **Backend stateless**: Cloud Run / Fargate.
+- **Datos**: managed DB (RDS, Supabase).
+- **Workflows**: serverless (Lambda, Cloud Functions).
+
+Resultado: 80% de los beneficios de containers/orchestration, 20% de la complejidad.
+
+## Anti-patrones comunes
+
+- "Kubernetes porque la última empresa lo tenía".
+- Cluster con 3 servicios consumiendo $3k/mes en overhead.
+- Sin estrategia de costos ni autoscaling.
+- 1 cluster compartido por dev/staging/prod.
+
+## Conclusión
+
+Kubernetes es herramienta poderosa cuando se justifica. En 2026, ese "cuándo se justifica" es más estricto que hace 5 años. Las alternativas mejoraron mucho. ¿Querés una segunda opinión sobre tu plataforma? [Conversemos](/es/contacto).

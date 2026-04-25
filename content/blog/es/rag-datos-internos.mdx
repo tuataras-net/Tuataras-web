@@ -1,0 +1,92 @@
+---
+title: "RAG: tu IA hablando con tus datos internos (sin alucinar)"
+excerpt: "Qué es Retrieval Augmented Generation, para qué sirve, cómo implementarlo y errores comunes."
+date: "2026-03-05"
+author: "Equipo Tuataras"
+category: "IA Aplicada"
+coverImage: "/illustrations/saas.svg"
+readTime: 6
+---
+
+ChatGPT no conoce tu empresa. Para que un LLM responda con tus datos — políticas, manuales, casos, contratos — necesitás **RAG** (Retrieval Augmented Generation). Es el patrón clave para llevar IA generativa a producción empresarial.
+
+## Cómo funciona RAG en 1 minuto
+
+1. Tomás tus documentos (PDFs, wikis, tickets, manuales).
+2. Los partís en chunks y los convertís en **embeddings** (vectores numéricos).
+3. Los guardás en una **vector database**.
+4. Cuando un usuario pregunta, encontrás los chunks más similares semánticamente.
+5. Le pasás esos chunks al LLM como contexto + la pregunta.
+6. El LLM responde **basándose en tus datos**, no en su entrenamiento.
+
+Resultado: respuestas precisas, citables, sin alucinaciones.
+
+## Casos de uso reales
+
+- **Soporte interno**: "¿Cuál es la política de viajes para Latam?"
+- **Soporte a cliente**: "¿Mi plan incluye exportar a Excel?"
+- **Ventas**: "Resumime los últimos 3 meses de interacciones con cliente X"
+- **Compliance**: "¿Qué documentos necesita un onboarding de proveedor en LATAM?"
+- **Onboarding**: "Explicame cómo se factura en nuestro sistema"
+
+## Stack 2026
+
+### Vector databases
+- **Pinecone**: hosted, fácil, buena para empezar.
+- **Weaviate / Qdrant**: open source, self-hosted o cloud.
+- **pgvector**: si ya usás Postgres, lo más simple.
+
+### Embeddings
+- **OpenAI text-embedding-3**: balance precio/calidad.
+- **Cohere Embed v3**: multilenguaje fuerte.
+- **Open source**: BGE, GTE para casos sensibles on-prem.
+
+### Frameworks
+- **LangChain / LlamaIndex**: para orquestación rápida.
+- **Custom**: si necesitás control total.
+
+### LLMs
+- **Claude / GPT / Gemini** vía API.
+- **Open source** (Llama, Mistral) para datos muy sensibles.
+
+## Las decisiones que importan
+
+### Chunk size
+- Muy chico (200 chars): contexto fragmentado, respuestas pobres.
+- Muy grande (4000 chars): irrelevante diluido, costo alto.
+- **Sweet spot**: 500–1500 chars con overlap de 100–200.
+
+### Cantidad de chunks recuperados (top-k)
+- Pocos (k=2): puede no traer info necesaria.
+- Muchos (k=10+): ruido, tokens caros.
+- **Sweet spot**: k=3–5 con re-ranking.
+
+### Re-ranking
+Después de la búsqueda inicial, un modelo re-ordena los resultados por relevancia real (Cohere Rerank, BGE Reranker). Mejora calidad significativamente.
+
+### Hybrid search
+Combinar búsqueda semántica (vectores) + lexical (BM25). Atrapa casos donde la palabra exacta importa (códigos, IDs).
+
+## Errores que matan la calidad
+
+- **Mala estructuración**: scrapear PDFs sin limpiar headers/footers/numeración.
+- **Sin metadata**: no aprovechar tags, fechas, autor para filtrar.
+- **Embeddings desactualizados**: docs cambian, embeddings no se regeneran.
+- **Sin observabilidad**: no medís qué tan bien responde, no podés mejorar.
+- **No mostrar fuentes**: el usuario no puede verificar.
+
+## El patrón de respuesta confiable
+
+Una respuesta RAG bien hecha tiene:
+1. **Respuesta clara y concisa**.
+2. **Fuentes citadas** (con link al doc original).
+3. **Disclaimer si la confianza es baja**: "no encontré info exacta, esto es lo más cercano".
+4. **Opción de profundizar**: "querés que busque más detalle?".
+
+## Caso real
+
+Empresa de servicios profesionales con 8000 documentos internos (políticas, casos, manuales). Pre-RAG: empleados pierden 5h/semana buscando info. Post-RAG: respuestas instantáneas con citaciones, ahorro estimado de 200 horas/semana en una empresa de 50 personas.
+
+## Conclusión
+
+RAG es el patrón que lleva IA generativa de demo a producto. Bien implementado, transforma cómo tu empresa accede a su propio conocimiento. ¿Diseñamos tu RAG? [Conversemos](/es/contacto).
